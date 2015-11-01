@@ -1,0 +1,40 @@
+---
+en:
+  search_site: 'Search article'
+  search_result: "Search Result:"
+  links: Links
+  similar_articles: Similar Articles
+  archives: Archives
+  show_all: writing
+  previous_article: Previous Article
+  next_article: Next Article
+  filter_tags: Filter Tags
+  read_more: Read on &#x276f;&#x276f;
+  file_not_found: File Not Found
+  navigation: Navigation
+  tags: Tags
+  monthly: Monthly
+  home: Home
+  aboutme: about
+  visual: work
+  tweet: Tweet
+  recent_entries: Recent
+  calendar_description:
+    text: "Entries posted in %{title}"
+  calendar_title:
+    text: "Entries from %{title}"
+    html: "Entries from <time>%{title}</time>"
+    format:
+      day: "%d, %b, %Y"
+      month: "%b, %Y"
+      year: "%Y"
+  blog:
+    url: http://mariusnedelcu.com/
+    title: Marius Nedelcu
+    cname: mariusnedelcu.com
+    description: Hacking recipes in my life.
+  author:
+    name: Marius Nedelcu
+  tag_title:
+    text: "#%{tag}"
+    html: "#%{tag}"
