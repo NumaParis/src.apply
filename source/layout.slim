@@ -56,13 +56,14 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
       /         == yield
       section.intro
         .in
-          h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
-          p.sub
-            strong =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
-            span
-              =link_to 'watch our video', '#playvid', :class => 'btn .play-vid'
+          div
+            .heading
+              h1 
+                strong =data.numa['intro'].find{ |p| p.name == 'heading' }.content
+              p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
+              span =link_to 'watch our video', '#playvid', :class => 'btn play-vid'
       
-      section.row.accelerator
+      section.accelerator
         .col-sm-8
           h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
           p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
@@ -80,11 +81,11 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
         
         div &nearr;
         
-        section.row.wanted
-          .col-sm-12
-            h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
-            p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
-            ul.wanted
+        / section.row.wanted
+        /   .col-sm-12
+        /     h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
+        /     p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
+        /     ul.wanted
 
 
 

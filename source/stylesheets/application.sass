@@ -1,7 +1,7 @@
 @import 'variables'
 @import 'reboot'
 @import 'normalize'
-@import 'debug'
+// @import 'debug'
 
 @import 'bootstrap'
 
@@ -11,7 +11,6 @@ html
 	+background-image('noise_mask_40.png')
 
 body
-	padding-top: $box-pad
 	background: transparent
 	+gradient-horizontal($body-bg, fade-out($body-bg, .5))
 	min-height: 100%
@@ -80,13 +79,20 @@ h4
 	font-weight: normal
 	font-style: normal
 
+@font-face
+	font-family: 'UniversLTStd-Bold'
+	src: url('/fonts/UniversLTStd-Bold.eot?#iefix') format('embedded-opentype'),url('/fonts/UniversLTStd-Bold.otf')format('opentype'), url('/fonts/UniversLTStd-Bold.woff') format('woff'), url('/fonts/UniversLTStd-Bold.ttf')format('truetype'), url('/fonts/UniversLTStd-Bold.svg#UniversLTStd-Bold') format('svg')
+	font-weight: normal
+	font-style: normal
+
 
 
 // Scaffolding ---------------------------------
 .row, .content
 	width: 100%
 
-// ------
+.container
+	background: white
 
 // Header --------------------------------------
 .logo
@@ -98,16 +104,65 @@ h4
 		&:hover &
 			display: inline-block
 
+nav.navbar
+	div.container
+		background: transparent
+		// padding: 0
+
 
 // Intro --------------------------------------
 .intro
+	margin-right: -$grid-gutter-width/2
+	margin-left: -$grid-gutter-width/2
 	padding-top: 50%
 	+background-image('header_image.jpg')
+	background-color: fade-out($orange, 0.2)
+	background-blend-mode: multiply
 	position: relative
+	.in
+		text-align: center
+		> div
+			display: table
+			+square(100%)
+
+$h1: 4.7em
+$sub : 1.5em
+.heading
+	display: table-cell
+	color: white
+	vertical-align: middle
+	> *
+		max-width: 800px
+		+center-block
+	
+	h1
+		font-family: 'UniversLTStd-Bold'
+		font-weight: normal
+		font-size: $h1
+		line-height: 1em
+		margin-bottom: 10px
+	
+	p
+		font-size: $sub
+		span
+			clear: both
+
+.btn
+	&.play-vid
+		color: white
+		font-size: $sub
+		text-decoration: underline
+		&:after
+			content: ''
+			display: inline-block
+			margin-left: 10px
+			+background-image('icon_play.svg')
+			background-size: 100% auto
+			+square(25px)
+			vertical-align: middle
 
 .in
 	+stretch
-
 
 //Accelerator ----------------------------------
 .agenda
@@ -129,6 +184,7 @@ h4
 		&:last-child
 			text-align: center
 			padding-top: $box-pad
+			border-bottom: none
 			.btn
 				font-weight: bold
 				padding-left: 2em
