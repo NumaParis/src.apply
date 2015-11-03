@@ -16,6 +16,7 @@ gem 'middleman-google-analytics', :github => 'ngs/middleman-google-analytics'
 gem 'middleman-livereload', '~> 3.3.2'
 gem 'middleman-ogp', :git => 'git://github.com/ngs/middleman-ogp.git', :branch => 'blog-support'
 gem 'middleman-syntax', :git => 'git://github.com/middleman/middleman-syntax.git'
+gem 'middleman-google_drive'
 
 gem 'redcarpet'
 gem 'nokogiri'

@@ -1,8 +1,9 @@
 @import 'variables'
 @import 'reboot'
 @import 'normalize'
-// @import 'debug'
-@import 'syntax'
+@import 'debug'
+
+@import 'bootstrap'
 
 
 // General ------------------------------------
@@ -14,14 +15,6 @@ body
 	background: transparent
 	+gradient-horizontal($body-bg, fade-out($body-bg, .5))
 	min-height: 100%
-
-p
-	code
-		color: white
-		background: black
-		padding: 2px 6px
-		border-radius: 2px
-		box-shadow: 0px 1px 2px fade-out(black, .9)
 
 // handling images
 // **********************
@@ -48,32 +41,16 @@ a
 	border-bottom: 2px solid $body-bg
 	+transition(200ms)
 
-p > q
-	font-family: Georgia, Times, 'Times New Roman', serif
-	font-size: 1.2em
-	font-style: italic
-	display: inline-block
-	clear: both
-	width: 100%
-	padding: $box-pad
-
 ul
 	margin: 0
 	padding: 0
 	li
 		list-style-type: none
+b
+	font-weight: normal
+i
+	font-style: normal
 
-pre.highlight
-	background: none
-	padding: $box-pad 0
-	font-size: 15px
-
-::-webkit-scrollbar
-	height: 0.5em
-	width: 0.5em
-
-::-webkit-scrollbar-thumb
-	background: black
 
 // Typography
 h1, h2, h3, h4, h5, h6 
@@ -91,158 +68,98 @@ h3
 h4
 	font-size: $font-size-root
 
+@font-face
+	font-family: 'UniversLTStd'
+	src: url('/fonts/UniversLTStd.eot?#iefix') format('embedded-opentype'), url('/fonts/UniversLTStd.otf') format('opentype'), url('/fonts/UniversLTStd.woff') format('woff'), url('/fonts/UniversLTStd.ttf') format('truetype'), url('/fonts/UniversLTStd.svg#UniversLTStd') format('svg')
+	font-weight: normal
+	font-style: normal
+
+@font-face
+	font-family: 'UniversLTStd-Black'
+	src: url('/fonts/UniversLTStd-Black.eot?#iefix') format('embedded-opentype'), url('/fonts/UniversLTStd-Black.otf') format('opentype'), url('/fonts/UniversLTStd-Black.woff') format('woff'), url('/fonts/UniversLTStd-Black.ttf') format('truetype'), url('/fonts/UniversLTStd-Black.svg#UniversLTStd-Black') format('svg')
+	font-weight: normal
+	font-style: normal
+
+
+
 // Scaffolding ---------------------------------
 .row, .content
 	width: 100%
 
-@media screen and (min-width: $container-md)
-	$sidebar-w: 10rem
-	.row
-		float: left
-		padding-right: $sidebar-w
-	
-	.content
-		float: left
-		width: 100%
-
-	sidebar
-		float: right
-		width: $sidebar-w - $box-pad
-		margin-right: -1 * $sidebar-w
-
-@media screen and (min-width: $container-xxl)
-	$sidebar-w: 16rem
-	.row
-		padding-right: $sidebar-w
-
-	.content
-		float: left
-		width: 100%
-
-	sidebar
-		+transition(200ms)
-		width: $sidebar-w - $box-pad
-		margin-right: -1 * $sidebar-w
-		text-align: right
-
-// sidebar inside articles
-// to hold the images.
-
-.sidebar
-	+transition(200ms)
-	overflow: visible
-	height: 0
-	padding-left: 700px
-	figure
-		padding-left: $box-pad
-
-.container
-	@media screen and (max-width: $container-xxl)
-		$x: 52.5%
-		.sidebar
-			height: 0
-			padding-left: $x
-		.article-body p
-			max-width: $x
-	@media screen and (max-width: $container-xl)
-		$x: 555px
-		.sidebar
-			height: 0
-			padding-left: $x
-		.article-body p
-			max-width: $x
-	@media screen and (max-width: $container-w)
-		$x: 100%
-		div.sidebar
-			height: auto
-			padding-left: 0
-			figure
-				padding-left: 0
-		.article-body p
-			max-width: 700px
-
-	max-width: $container-xxl
-	@media screen and (min-width: $container-lg)
-		padding: $box-pad $box-pad * 2
-	padding: 0 $box-pad
-	+transition(200ms)
-	+center-block
-	+clearfix
-	> footer
-		clear: both
-		padding: $box-pad 0
-
 // ------
-body.wide
-	.row
-		padding-right: 0
-	.content
-		float: none
-	sidebar
-		width: 100%
-		margin-right: 0
-		float: none
-		display: none
-		.box
-			vertical-align: top
-			width: 50%
-			display: table
-			display: table-cell
-
-//------
-body.grid
-	.row
-		padding: 0
 
 // Header --------------------------------------
 .logo
 	float: left
+	max-width: 110px
 	strong
 		font-weight: normal
 		display: none
 		&:hover &
 			display: inline-block
 
-.navbar
-	margin-bottom: $box-pad
-	@extend .container
 
-.nav-menu
-	padding: 0 0 0 100px
+// Intro --------------------------------------
+.intro
+	padding-top: 50%
+	+background-image('header_image.jpg')
+	position: relative
+
+.in
+	+stretch
+
+
+//Accelerator ----------------------------------
+.agenda
+	li
+		display: block
+		border-bottom: 2px solid white
+		line-height: 37px
+		margin-bottom: 2px
+		color: white
+		&:first-child
+			font-weight: bold
+			&:before
+				content: ''
+				display: inline-block
+				margin-right: 10px
+				+background-image('icon_calendar.svg')
+				+square(25px)
+				vertical-align: middle
+		&:last-child
+			text-align: center
+			padding-top: $box-pad
+			.btn
+				font-weight: bold
+				padding-left: 2em
+				padding-right: 2em
+	
+	padding: $box-pad
+	background: fade-in($orange, .3)
+	margin-top: -150px
+	b
+		border-left: 2px solid white
+		display: inline-block
+		width: 120px
+		float: right
+		padding-left: 10px
+
+.metrics
+	display:block
 	li
 		display: inline-block
-		padding: 0em 0.6em
+		text-align: center
+		strong
+			color: $orange
+
+
+//Accelerator ----------------------------------
+//Accelerator ----------------------------------
+//Accelerator ----------------------------------
+//Accelerator ----------------------------------
 
 
 // Site Parts -----------------------------------
-ul.pagination
-	margin: $box-pad 0
-	// padding-top: $box-pad
-	li
-		&.disabled
-			display: none
-		&.active span
-			background: white
-		margin: 0
-		display: inline-block
-	a, span
-		display: block
-		padding: $box-pad
-	a
-		&:hover
-			background: black
-			color: white
-		border-bottom: 0
-
-p.read-more
-	margin-bottom: 0
-	a
-		&:hover
-			background: black
-			color: white
-		padding: 1px 4px 1px 2px
-		border-bottom-color: black
-
 ul.social // social links in the bootom footer
 	li
 		&:last-child
@@ -255,230 +172,26 @@ ul.social // social links in the bootom footer
 		margin-right: 10px
 		padding: 0
 
-.box
-	margin: 0rem 0rem $box-pad 0rem
-	h3
-		margin-bottom: $box-pad
-		&:after
-			content: ' :'
-	li
-		&.show-all
-			a
-				&:hover
-					color: $link-hover-color
-				color: white
-		&:last-child
-			margin-bottom: 0
-		margin-bottom: $box-pad
+.btn
+	border: none
+	text-decoration: none
 
-.tags
-	i
-		margin-left: 4px
-		font-style: normal
-		color: #000
-		font-weight: bold
-		&:before
-			content: '⁄ '
-			font-weight: bold
-		// border-left: 2px solid $body-bg
-	a
-		&:before
-			content: '#'
-			margin-right: 1px
-	li
-		display: block
-		margin-right: 10px
-
-ul.thumbnails
-	$w : 100%
-	padding: $box-pad 0
-	+clearfix
-	&.c3
-		li
-			width: $w / 3
-	&.c2
-		li
-			width: $w / 2
-	
-	li
-		display: block
-		float: left
-		a:hover
-			img
-				+transition(100ms)
-				opacity: .5
-
-footer.meta
-	ul
-		li
-			display: inline-block
-
-// just in case i write content with
-// footnotes should revisit this
-.footnotes
-	clear: both
-	max-width: 700px
-	border-top: 1px dotted black
-	hr
-		display: none
-
-// Content ----------------------------------
-
-.entry
-	padding-bottom: $box-pad
-	margin-bottom: $box-pad
-	header
-		clear: both
-		h1, h2
-			font-weight: 900
-			margin: 0
-
-p.meta
-	font-weight: bold
-	font-size: $font-size-small
-	time
-		margin-right: $box-pad
+	&:hover
+		border: none
+	&.btn-apply
+		background: $blue
+		color: white
 
 
-// About page --------------------------------------------
-.about
-	> p
-		max-width: 700px
-	header h1
-		margin-bottom: 0
-
-.article-body
-	+clearfix
-	p
-		max-width: 700px
-		display: block
-
-.banner
-	margin-bottom: $box-pad
-
-body.wide .article-body blockquote p
-	// padding: $box-pad $box-pad * 2
-	margin: 0
-	font-size: 1.9em
-	line-height: 1.3em
-	font-style: italic
-	font-family: Georgia, Times, 'Times New Roman', serif
-	cite
-		display: block
-		font-size: 0.6em
-		&:before
-			content: "— "
-	
-time.date
-	display: block
-	clear: left
-	font-size: $font-size-small
-
-#archives
-	display: block
-	width: 100%
 
 
-ul.entries
-	li a time
-		margin-right: $box-pad
-	
+
+
+
+
 
 
 
 // -------------------------------------
 // Portfolio View ----------------------
 // -------------------------------------
-.work
-	background: fade-out(red, .9)
-	padding: 0
-	margin: 0
-	+clearfix
-	li
-		width: 33.3333%
-		padding-top: 33.3333%
-		background: fade-out(blue, .7)
-		display: inline-block
-		height: 0
-		float: left
-		overflow: hidden
-
-
-// .btn, .btn:hover 
-// 	border-bottom: 0
-// 	padding: 0.5em 1em
-
-// .btn
-// 	&:hover
-// 		background: black
-// 		color: white
-// 		border-bottom: 1px solid black
-// 	border-bottom: 2px solid black
-// 	// display: block
-// 	text-align: left
-// 	background: $body-bg
-// 	font-weight: bold
-// 	border: 1px solid black
-// 	border-radius: 2px
-
-// scaffolding layout
-
-#qu-showcase
-	position: relative
-	padding-top: 690px
-	margin-bottom: $box-pad
-	
-	div
-		overflow-y: hidden
-		overflow-x: scroll
-		position: absolute
-		top: 0
-		left: 0
-		right: 0
-		bottom: 0
-	
-	ul
-		position: relative
-		margin: 0
-		padding: 0
-		display: block
-		overflow: auto
-		width: 500px * 62
-	
-		li
-			display: block
-			float: left
-			width: 500px
-
-.qu-mask
-	width: auto
-	z-index: 100
-	position: absolute
-	top: 0
-	right: 0
-	bottom: 0
-	overflow: scroll
-
-.article-body ul
-	margin-bottom: $box-pad
-
-.qu-grid
-	display: block
-	li
-		padding: 15px 14px 0
-		box-shadow: inset -1px -1px 0px fade-out(black, .7)
-		display: block
-		position: relative
-		float: left
-		max-width: 110px
-		img
-			width: 100%
-		i
-			position: absolute
-			bottom: 0
-			right: 0
-			background: fade-out(black, .7)
-			font-style: normal
-			border-radius: 5px 0px 0px 
-			padding: 0 5px 0 5px
-			color: white
