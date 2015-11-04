@@ -58,8 +58,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
         .in
           div
             .heading
-              h1 
-                strong =data.numa['intro'].find{ |p| p.name == 'heading' }.content
+              h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
               p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
               span =link_to 'watch our video', '#playvid', :class => 'btn play-vid'
       
@@ -79,15 +78,60 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             li
               =link_to 'Apply Now', "#f6slink", :class => 'btn btn-lg btn-apply'
         
-        div &nearr;
+        section.wanted
+          .col-sm-12
+            h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
+            ul.wanted
+              =data.numa['wanted'].find{ |p| p.name == 'criteria' }.content
+
+        section.program
+          .col-sm-12
+            h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
+            p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
+            ul.keypoints
+              =data.numa['program'].find{ |p| p.name == 'keypoints' }.content
+          .col-sm-12
+            h3 Program Timeline
+            ul.timeline
+              =data.numa['program'].find{ |p| p.name == 'timeline' }.content
         
-        / section.row.wanted
-        /   .col-sm-12
-        /     h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
-        /     p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
-        /     ul.wanted
-
-
+        section.team
+          .col-sm-12
+            h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
+            p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
+          
+          ul.people.team
+            -data.numa['team'].each do |row|
+              li.col-sm-2
+                span.photo
+                  = image_tag (row['photo'])
+                strong
+                  = row['name']
+                em
+                  = row['role']
+                span.twitter
+                  = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
+                span.linkedin
+                  = link_to '&nearr;', "#{row['linkedin']}"
+        
+        section.mentors
+          .col-sm-12
+            h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
+            p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
+          
+          ul.people.mentors
+            -data.numa['mentors'].each do |row|
+              li.col-sm-2
+                span.photo
+                  = image_tag (row['photo'])
+                strong
+                  = row['name']
+                em
+                  = row['role']
+                span.twitter
+                  = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
+                span.linkedin
+                  = link_to '&nearr;', "#{row['linkedin']}"
 
         /sidebar
           / .recent.box
