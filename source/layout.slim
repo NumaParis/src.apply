@@ -133,7 +133,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             -data.numa['team'].each do |row|
               li.col-sm-2
                 span.photo
-                  = image_tag (row['photo'])
+                  = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
                 strong
                   = row['name']
                 em
@@ -152,7 +152,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             -data.numa['mentors'].each do |row|
               li.col-sm-2
                 span.photo
-                  = image_tag (row['photo'])
+                  = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
                 strong.name
                   = row['name']
                 em
@@ -176,7 +176,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             -data.numa['stories'].each do |row|
               li.col-sm-4
                 span.photo
-                  = image_tag (row['picture'])
+                  = image_tag "#{row['picture']}", :alt=>"#{row['name']}"
                 h4.name
                   = row['name']
                 em
