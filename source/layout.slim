@@ -46,7 +46,8 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             span.icon-bar
           =link_to config.site_url, :class => 'navbar-brand logo'
             =image_tag('logo_numa.svg', :alt => 'NUMA', :class => 'logo')
-        .collapse.navbar-collapse id="bs-example-navbar-collapse-1"
+        .collapse.navbar-collapse
+          = link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn btn-apply pull-right'
           ul.nav.navbar-nav.pull-right
             li.active= link_to 'Accelerator', '#accelerator'
             li= link_to 'Wanted', '#wanted'
@@ -54,7 +55,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             li= link_to 'Team', '#team'
             li= link_to 'Portfolio', '#success'
             li= link_to 'Faq', '#faq'
-            li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
+            / li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
     
     .container
       / .row

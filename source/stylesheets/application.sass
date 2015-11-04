@@ -9,12 +9,16 @@
 // General ------------------------------------
 html
 	+background-image('noise_mask_40.png')
+	background-color: #d5d5d5
 
 body
 	background: transparent
-	+gradient-horizontal($body-bg, fade-out($body-bg, .5))
 	min-height: 100%
-
+	padding-top: 70px
+	>
+		.container
+			background: white
+	
 // handling images
 // **********************
 img
@@ -34,11 +38,11 @@ figcaption
 	padding-top: $box-pad
 	font-size: $font-size-small
 
-a
-	&:hover
-		border-bottom: 2px solid #000
-	border-bottom: 2px solid $body-bg
-	+transition(200ms)
+// a
+	// &:hover
+		// border-bottom: 2px solid #000
+	// border-bottom: 2px solid $body-bg
+	// +transition(200ms)
 
 ul
 	margin: 0
@@ -91,17 +95,11 @@ h4
 .row, .content
 	width: 100%
 
-.container
-	background: white
-
 .content
 	> section
 		+clearfix
-		outline: 1px solid red
 		padding: $box-pad * 2 0
 
-
-section
 // Header --------------------------------------
 .logo
 	float: left
@@ -113,9 +111,15 @@ section
 			display: inline-block
 
 nav.navbar
+	+background-image('noise_mask_40.png')
+	background-color: #d5d5d5
+	padding: 10px 0
+	// &.top-nav-collapse
 	div.container
-		background: transparent
+		// background: transparent
 		// padding: 0
+	.btn-apply
+		margin-top: 10px
 
 
 // Intro --------------------------------------
