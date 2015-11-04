@@ -100,7 +100,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
             p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
           
-          ul.people.team
+          ul.people
             -data.numa['team'].each do |row|
               li.col-sm-2
                 span.photo
@@ -119,12 +119,12 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
             p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
           
-          ul.people.mentors
+          ul.people
             -data.numa['mentors'].each do |row|
               li.col-sm-2
                 span.photo
                   = image_tag (row['photo'])
-                strong
+                strong.name
                   = row['name']
                 em
                   = row['role']
@@ -132,7 +132,31 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
                   = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
                 span.linkedin
                   = link_to '&nearr;', "#{row['linkedin']}"
+        
+        section.global
+          .col-sm-12
+            h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
+            p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
 
+        section.success
+          .col-sm-12
+            h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
+            /p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
+          
+          ul.stories
+            -data.numa['stories'].each do |row|
+              li.col-sm-4
+                span.photo
+                  = image_tag (row['picture'])
+                h4.name
+                  = row['name']
+                em
+                  = row['role']
+                p
+                  = row['story']
+        
+        / section.partners
+          
         /sidebar
           / .recent.box
           /   h3= t :recent_entries
