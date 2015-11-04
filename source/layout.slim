@@ -104,12 +104,26 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
             p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
             ul.keypoints
-              =data.numa['program'].find{ |p| p.name == 'keypoints' }.content
+              -data.numa['program'].each do |row|
+                li.col-sm-3
+                  =row['keypoints']
+
           .col-sm-12
             h3 Program Timeline
-            ul.timeline
-              =data.numa['program'].find{ |p| p.name == 'timeline' }.content
-        
+
+          ul.col-sm-4
+            -data.numa['program'].each do |row|
+              li
+                =row['one']
+          ul.col-sm-4
+            -data.numa['program'].each do |row|
+              li
+                =row['two']
+          ul.col-sm-4
+            -data.numa['program'].each do |row|
+              li
+                =row['three']
+
         section#team
           .col-sm-12
             h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
