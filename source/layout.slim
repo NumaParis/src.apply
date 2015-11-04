@@ -179,11 +179,11 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           ul.stories
             -data.numa['stories'].each do |row|
               li.col-sm-4
-                span.photo
+                .photo
                   = image_tag "#{row['picture']}", :alt=>"#{row['name']}"
                 h4.name
                   = row['name']
-                em
+                em.role
                   = row['role']
                 p
                   = row['story']
