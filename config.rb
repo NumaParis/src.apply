@@ -195,7 +195,7 @@ activate :deploy do |deploy|
   IO.write "source/CNAME", cname
   deploy.method = :git
   deploy.branch = 'gh-pages'
-  deploy.remote = "https://#{ENV['GH_TOKEN']}@github.com/NumaParis/#{cname}.git"
+  deploy.remote = "https://#{ENV['GH_TOKEN']}@github.com/nedzen/#{cname}.git"
 end
 
 helpers do
