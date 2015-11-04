@@ -78,12 +78,6 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           .col-sm-8
             h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
             p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
-            
-            ul.metrics
-              -data.numa['accelerator'].each do |row|
-                li
-                  = row['trackrecord']
-              li
           
           .col-sm-4
             ul.agenda
@@ -94,33 +88,42 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
               li
                 =link_to 'Apply Now', "#f6slink", :class => 'btn btn-lg btn-apply'
           
+          ul.metrics.clearfix
+            -data.numa['accelerator'].each do |row|
+              li.col-sm-3
+                = row['trackrecord']
+        
         section#wanted
           .col-sm-12
             h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
-            ul.wanted
-              =data.numa['wanted'].find{ |p| p.name == 'criteria' }.content
+          
+          ul.wanted
+            -data.numa['wanted'].each do |row|
+              li.col-sm-3
+                =row['criteria']? row['criteria'] : ""
 
         section#program
-          .col-sm-12
+          .col-sm-8
             h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
             p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
-            ul.keypoints
-              -data.numa['program'].each do |row|
-                li.col-sm-3
-                  =row['keypoints']
+          
+          ul.keypoints
+            -data.numa['program'].each do |row|
+              li.col-sm-3
+                =row['keypoints']? row['keypoints'] : ""
 
           .col-sm-12
             h3 Program Timeline
-
-          ul.col-sm-4
+          
+          ul.step.one.col-sm-4
             -data.numa['program'].each do |row|
               li
                 =row['one']
-          ul.col-sm-4
+          ul.step.two.col-sm-4
             -data.numa['program'].each do |row|
               li
                 =row['two']
-          ul.col-sm-4
+          ul.step.three.col-sm-4
             -data.numa['program'].each do |row|
               li
                 =row['three']

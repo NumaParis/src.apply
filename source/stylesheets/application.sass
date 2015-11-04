@@ -210,21 +210,91 @@ $sub : 1.5em
 	b
 		border-left: 2px solid white
 		display: inline-block
-		width: 120px
+		width: 130px
 		float: right
-		padding-left: 10px
+		padding-left: 5px
 
-.metrics
+ul.metrics
 	display:block
+	clear: both
+	padding: $box-pad 0
 	li
 		display: inline-block
 		text-align: center
 		strong
+			font-size: 19px
+			display: block
 			color: $orange
 
+//Wanted ----------------------------------
+ul.wanted
+	li
+		text-align: center
+		&:before
+			display: block
+			content: ''
+			background-color: #ccc
+			border-radius: 100%
+			+size(70%, 0)
+			+center-block
+			padding-top: 70%
+			margin-bottom: 10px
 
-//Accelerator ----------------------------------
-//Accelerator ----------------------------------
+//Program ----------------------------------
+ul.keypoints
+	padding: $box-pad 0
+	clear: both
+	+clearfix
+	li
+		&:before
+			content: '✔ '
+		text-align: center
+		padding: 20px 0
+		+gradient-horizontal($orange, fade-out($orange, .7))
+		border: 10px solid white
+		&:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8)
+			display: none
+// Timeline ---------------
+ul.step
+	&, h3, em
+		display: block
+	border-top: 2px solid $orange
+	h3
+		padding-top: 30px
+		font-size: 20px
+		margin-bottom: $box-pad/2
+		em
+			font-size: 17px
+	li
+		margin-bottom: $box-pad/2
+
+.one, .two, .three
+	position: relative
+	&:before
+		display: block
+		position: absolute
+		top: -20px
+		left: 20px
+		background: $orange
+		+square(36px)
+		border-radius: 100%
+		text-align: center
+		color: white
+		font-family: 'UniversLTStd-Bold'
+
+.one
+	&:before
+		padding-top: 9px
+		content: '1'
+.two
+	&:before
+		padding-top: 9px
+		content: '2'
+.three
+	&:before
+		padding-top: 9px
+		content: '3'
+
 //Accelerator ----------------------------------
 //Accelerator ----------------------------------
 
