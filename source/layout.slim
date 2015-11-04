@@ -44,10 +44,10 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          =link_to config.site_url, :class => 'navbar-brand logo'
+          =link_to config.site_url, :class => 'logo'
             =image_tag('logo_numa.svg', :alt => 'NUMA', :class => 'logo')
         .collapse.navbar-collapse
-          = link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn btn-apply pull-right'
+          = link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn btn-apply pull-right', :target=> '_blank'
           ul.nav.navbar-nav.pull-right
             li= link_to 'Accelerator', '#accelerator'
             li= link_to 'Wanted', '#wanted'
@@ -71,7 +71,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             .heading
               h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
               p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
-              span =link_to 'watch our video', '#playvid', :class => 'btn play-vid'
+              span =link_to '&nbsp;', '#playvid', :class => 'btn play-vid'
       
       .content
         section#accelerator
@@ -86,7 +86,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
                 li
                   = row['agenda']
               li
-                =link_to 'Apply Now', "#f6slink", :class => 'btn btn-lg btn-apply'
+                =link_to 'Apply Now', "#f6slink", :class => 'btn btn-lg btn-apply', :target=> '_blank'
           
           ul.metrics.clearfix
             -data.numa['accelerator'].each do |row|
@@ -96,7 +96,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
         section#wanted
           .col-sm-12
             h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
-          
+            p =data.numa['wanted'].find{ |p| p.name == 'paragraph' }.content
           ul.wanted
             -data.numa['wanted'].each do |row|
               li.col-sm-3
@@ -116,17 +116,20 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             h3 Program Timeline
           
           ul.step.one.col-sm-4
-            -data.numa['program'].each do |row|
-              li
-                =row['one']
+            - data.numa['program'].each do |row|
+              - if row['one'] != nil
+                li
+                  = row['one']
           ul.step.two.col-sm-4
             -data.numa['program'].each do |row|
-              li
-                =row['two']
+              - if row['two'] != nil
+                li
+                  =row['two']
           ul.step.three.col-sm-4
             -data.numa['program'].each do |row|
-              li
-                =row['three']
+              - if row['three'] != nil
+                li
+                  =row['three']
 
         section#team
           .col-sm-12
@@ -138,14 +141,14 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
               li.col-sm-2
                 .photo
                   = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
+                  span.linkedin
+                    = link_to '&nbsp;', "#{row['linkedin']}", :target=> '_blank'
                 strong
                   = row['name']
-                em
-                  = row['role']
+                  em
+                    = row['role']
                 span.twitter
                   = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
-                span.linkedin
-                  = link_to '&nbsp;', "#{row['linkedin']}"
         
         section#mentors
           .col-sm-12
@@ -157,14 +160,15 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
               li.col-sm-2
                 .photo
                   = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
+                  span.linkedin
+                    = link_to '&nbsp;', "#{row['linkedin']}", :target=> '_blank'
+                
                 strong.name
                   = row['name']
-                em
-                  = row['role']
+                  em
+                    = row['role']
                 span.twitter
                   = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
-                span.linkedin
-                  = link_to '&nearr;', "#{row['linkedin']}"
         
         section#global
           .col-sm-12

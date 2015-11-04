@@ -31,10 +31,16 @@ $ ->
       target = $(@hash)
       target = if target.length then target else $('[name=' + @hash.slice(1) + ']')
       if target.length
-        $('html,body').animate { scrollTop: target.offset().top }, 200
+        $('html,body').animate { scrollTop: target.offset().top-50 }, 200
         return false
     return
   return
 # ---
+
+$ ->
+  $('.step li:last-child').click ->
+    $(this).toggleClass('more-info')
+  return
+return
 
 # $('body').scrollspy target: '#has-scrollspy'

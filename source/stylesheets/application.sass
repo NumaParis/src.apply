@@ -1,8 +1,7 @@
 @import 'variables'
 @import 'reboot'
 @import 'normalize'
-// @import 'debug'
-
+@import 'debug'
 @import 'bootstrap'
 
 
@@ -39,12 +38,15 @@ figcaption
 	padding-top: $box-pad
 	font-size: $font-size-small
 
-// a
-	// &:hover
-		// border-bottom: 2px solid #000
-	// border-bottom: 2px solid $body-bg
+a
+	&:hover
+		text-decoration: underline	
 	// +transition(200ms)
 
+p
+	strong, b
+		font-weight: normal
+		font-family: 'UniversLTStd-Bold'
 ul
 	margin: 0
 	padding: 0
@@ -54,7 +56,6 @@ b
 	font-weight: normal
 i
 	font-style: normal
-
 
 // Typography
 h1, h2, h3, h4, h5, h6 
@@ -66,6 +67,7 @@ h1, h2, h3, h4, h5, h6
 h1
 	font-size: $font-size-root * $pi / 1.5
 h2
+	font-family: 'UniversLTStd-Bold'
 	font-size: $font-size-root * $pi / 2
 h3
 	font-size: $font-size-root * $pi / 2.5
@@ -103,7 +105,7 @@ h4
 
 // Header --------------------------------------
 .logo
-	float: left
+	padding: 15px 0px 0px 0
 	max-width: 110px
 	strong
 		font-weight: normal
@@ -118,11 +120,13 @@ nav.navbar
 	border-bottom: 0px 
 	// &.top-nav-collapse
 	div.container
+		padding-left: 0
+		padding-right: 0
 		// background: transparent
 		// padding: 0
 	.btn-apply
-		padding-left: 1.5em
-		padding-right: 1.5em
+		padding-left: 2em
+		padding-right: 2em
 		margin-top: 8px
 		margin-left: 15px
 
@@ -149,7 +153,7 @@ ul.nav
 .intro
 	margin-right: -$grid-gutter-width/2
 	margin-left: -$grid-gutter-width/2
-	padding-top: 50%
+	padding-top: 58%
 	+background-image('header_image.jpg')
 	background-color: fade-out($orange, 0.1)
 	background-blend-mode: multiply
@@ -176,27 +180,33 @@ $sub : 1.5em
 		font-size: $h1
 		line-height: 1em
 		margin-bottom: 10px
-	
 	p
 		font-size: $sub
-		span
-			clear: both
+	span
+		// display: block
+		// height: 80px
 
 // .people
 
 .btn
+	&:focus, &:active
+		box-shadow: none
 	&.play-vid
-		color: white
-		font-size: $sub
-		text-decoration: underline
-		&:after
-			content: ''
-			display: inline-block
-			margin-left: 10px
-			+background-image('icon_play.svg')
-			background-size: 100% auto
-			+square(25px)
-			vertical-align: middle
+		// &:hover
+			// +square(80px)
+		// display: none
+		// color: white
+		// font-size: $sub
+		// text-decoration: underline
+		// &:after
+			// content: ''
+		+center-block
+		+transition(100ms)
+		position: relative
+		+background-image('icon_play.svg')
+		background-size: 100% auto
+		+square(75px)
+		vertical-align: middle
 
 .in
 	+stretch
@@ -229,7 +239,8 @@ $sub : 1.5em
 	
 	padding: $box-pad
 	background: fade-in($orange, .3)
-	margin-top: -150px
+	@media screen and (min-width: $screen-md)
+		margin-top: -150px
 	b
 		border-left: 2px solid white
 		display: inline-block
@@ -241,13 +252,34 @@ ul.metrics
 	display:block
 	clear: both
 	padding: $box-pad 0
+	border-bottom: 1px solid $orange
 	li
+		&:last-child
+			&:after
+				display: none
+		&:after
+			content: ''
+			border-right: 1px solid $orange
+			display: block
+			height: 50px
+			top: 0
+			right: 0
+			position: absolute
+		
+		position: relative
 		display: inline-block
 		text-align: center
 		strong
-			font-size: 19px
 			display: block
 			color: $orange
+			b
+				line-height: 1em
+				font-size: 3em
+				display: block
+	
+	strong, b
+		font-family: 'UniversLTStd-Bold'
+				
 
 //Wanted ----------------------------------
 ul.wanted
@@ -292,6 +324,22 @@ ul.step
 			font-size: 17px
 	li
 		margin-bottom: $box-pad/2
+		// display: inline-block
+		&:last-child
+			+transition(100ms)
+			display: block
+			position: relative
+			height: 20px
+			overflow: hidden
+			&:before
+				cursor: pointer
+				content: '▼ more info'
+				display: block
+				clear: both
+		&.more-info
+			&:before
+				content: '▲ less info'
+			height: auto
 
 .one, .two, .three
 	position: relative
@@ -329,17 +377,31 @@ ul.people
 			display: block
 		strong
 			padding: $box-pad/2 0
+			font-weight: normal
+			font-family: 'UniversLTStd-Bold'
 		em
+			font-style: normal
 			font-size: 15px
+			font-family: 'UniversLTStd'
 		span
-			padding-left: 20px
-			background-size: 20px auto
 			&.twitter
+				font-size: 15px
+				padding-left: 20px
+				background-size: 17px auto
 				+background-image('twitter.svg')
 				background-repeat: no-repeat
 			&.linkedin
-				+background-image('linkedin.svg')
-				background-repeat: no-repeat
+				position: absolute
+				bottom: 0
+				right: 0
+				a
+					padding-left: 20px
+					background-size: 20px auto
+					display: block
+					+background-image('linkedin.svg')
+					background-repeat: no-repeat
+		.photo
+			position: relative
 
 
 //Accelerator ----------------------------------
@@ -347,6 +409,7 @@ ul.people
 .stories
 	.photo
 		margin-bottom: 20px
+		background: orange
 	.name
 		font-family: 'UniversLTStd-Bold'
 		margin-bottom: $box-pad/2
