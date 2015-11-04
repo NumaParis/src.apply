@@ -36,7 +36,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
   
   body
     / bootstrap 3 compatible
-    nav.navbar itemscope="itemscope" itemtype="http://www.search_sitema.org/SiteNavigationElement"
+    nav.navbar.navbar-fixed-top itemscope="itemscope" itemtype="http://www.search_sitema.org/SiteNavigationElement"
       .container
         .navbar-header
           button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
@@ -49,10 +49,10 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
         .collapse.navbar-collapse id="bs-example-navbar-collapse-1"
           ul.nav.navbar-nav.pull-right
             li.active= link_to 'Accelerator', '#accelerator'
-            li= link_to 'Agenda2016', '#agenda2016'
+            li= link_to 'Wanted', '#wanted'
             li= link_to 'Program', '#program'
             li= link_to 'Team', '#team'
-            li= link_to 'Portfolio', '#portfolio'
+            li= link_to 'Portfolio', '#success'
             li= link_to 'Faq', '#faq'
             li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
     
