@@ -9,8 +9,8 @@ require './lib/middleman/renderers/custom'
 
 lang = (ENV['MM_LANG'] || 'en').to_sym
 cname = ({
-  en: 'mariusnedelcu.com',
-  fr: 'fr.mariusnedelcu.com'
+  en: 'apply.numa.co',
+  fr: 'fr.apply.numa.co'
 })[lang]
 
 Time.zone = "Paris"
@@ -195,7 +195,7 @@ activate :deploy do |deploy|
   IO.write "source/CNAME", cname
   deploy.method = :git
   deploy.branch = 'gh-pages'
-  deploy.remote = "https://#{ENV['GH_TOKEN']}@github.com/nedzen/#{cname}.git"
+  deploy.remote = "https://#{ENV['GH_TOKEN']}@github.com/NumaParis/#{cname}.git"
 end
 
 helpers do
