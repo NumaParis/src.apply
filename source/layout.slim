@@ -64,15 +64,15 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
       /     - else
       /       main role='main'
       /         == yield
+      section.intro
+        .in
+          div
+            .heading
+              h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
+              p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
+              span =link_to 'watch our video', '#playvid', :class => 'btn play-vid'
+      
       .content
-        section.intro
-          .in
-            div
-              .heading
-                h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
-                p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
-                span =link_to 'watch our video', '#playvid', :class => 'btn play-vid'
-        
         section#accelerator
           .col-sm-8
             h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content

@@ -94,17 +94,11 @@ h4
 .container
 	background: white
 
-#accelerator,
-#wanted,
-#program
-#team,
-#mentors,
-#global,
-#success
-	padding: $box-pad * 3 0
-	display: block
-	outline: 1px solid red
-	+clearfix
+.content
+	> section
+		+clearfix
+		outline: 1px solid red
+		padding: $box-pad * 2 0
 
 
 section
@@ -254,6 +248,8 @@ ul.social // social links in the bootom footer
 		background: $blue
 		color: white
 
+footer
+	clear: both
 
 
 
