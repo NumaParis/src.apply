@@ -136,7 +136,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           ul.people
             -data.numa['team'].each do |row|
               li.col-sm-2
-                span.photo
+                .photo
                   = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
                 strong
                   = row['name']
@@ -145,7 +145,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
                 span.twitter
                   = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
                 span.linkedin
-                  = link_to '&nearr;', "#{row['linkedin']}"
+                  = link_to '&nbsp;', "#{row['linkedin']}"
         
         section#mentors
           .col-sm-12
@@ -155,7 +155,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           ul.people
             -data.numa['mentors'].each do |row|
               li.col-sm-2
-                span.photo
+                .photo
                   = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
                 strong.name
                   = row['name']

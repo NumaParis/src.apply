@@ -254,7 +254,9 @@ ul.keypoints
 		border: 10px solid white
 		&:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8)
 			display: none
+
 // Timeline ---------------
+
 ul.step
 	&, h3, em
 		display: block
@@ -295,7 +297,26 @@ ul.step
 		padding-top: 9px
 		content: '3'
 
-//Accelerator ----------------------------------
+//Team & Mentors ----------------------------------
+
+ul.people
+	li
+		min-height: 300px
+		strong, em, span
+			display: block
+		strong
+			padding: $box-pad/2 0
+		em
+			font-size: 15px
+		span
+			padding-left: 20px
+			background-size: 20px auto
+			&.twitter
+				+background-image('twitter.svg')
+				background-repeat: no-repeat
+			&.linkedin
+				+background-image('linkedin.svg')
+				background-repeat: no-repeat
 //Accelerator ----------------------------------
 
 
