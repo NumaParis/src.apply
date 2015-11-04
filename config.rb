@@ -7,7 +7,7 @@ require './lib/middleman/renderers/custom'
 # Blog settings
 ###
 
-lang = (ENV['MM_LANG'] || 'fr').to_sym
+lang = (ENV['MM_LANG'] || 'en').to_sym
 cname = ({
   en: 'mariusnedelcu.com',
   fr: 'fr.mariusnedelcu.com'
@@ -202,7 +202,7 @@ helpers do
   include EmojiHelper
 
   def alt_lang
-    I18n.locale.to_s == 'en' ? "fr_FR" : "en_US"
+    I18n.locale.to_s == 'en' ? "fr" : "en"
   end
 
   def alt_lang_name
@@ -214,7 +214,7 @@ helpers do
   end
 
   def alt_host
-    I18n.locale.to_s == 'en' ? "fr.mariusnedelcu.com" : "mariusnedelcu.com"
+    I18n.locale.to_s == 'en' ? "fr.apply.numa.co" : "apply.numa.co"
   end
 
   def alt_href
