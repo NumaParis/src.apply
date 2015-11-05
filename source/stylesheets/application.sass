@@ -496,6 +496,7 @@ ul.step
 ul.people
 	li
 		min-height: 300px
+		text-align: center
 		strong, em, span
 			display: block
 		strong
@@ -506,25 +507,34 @@ ul.people
 			font-style: normal
 			font-size: 15px
 			font-family: 'UniversLTStd'
-		span
-			&.twitter
-				font-size: 15px
-				padding-left: 20px
-				background-size: 17px auto
-				+background-image('twitter.svg')
-				background-repeat: no-repeat
-			&.linkedin
-				position: absolute
-				bottom: 0
-				right: 0
-				a
-					padding-left: 20px
-					background-size: 20px auto
-					display: block
-					+background-image('linkedin.svg')
-					background-repeat: no-repeat
-		.photo
-			position: relative
+
+.avatar
+	+center-block
+	position: relative
+	max-width: 200px
+	img
+		position: relative
+		overflow: hidden
+		border-radius: 100% 
+		overflow: hidden
+
+.linkedin, .twitter
+	bottom: 0
+	position: absolute
+	padding-top: 20px
+	+square(20px)
+	background-size: 20px auto
+	background-repeat: no-repeat
+	overflow: hidden
+
+.linkedin
+	right: 0
+	+background-image('linkedin.svg')
+
+.twitter
+	left: 0
+	+background-image('twitter.svg')
+
 
 
 //Accelerator ----------------------------------

@@ -129,7 +129,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             li =image_tag('images/amazon-web-services.png')
             /li =image_tag('images/digital ocean.png')
             li =image_tag('images/evernote.jpg')
-            li =image_tag('images/fotolia.jpg')
+            /li =image_tag('images/fotolia.jpg')
             li =image_tag('images/front.png')
             li =image_tag('images/mention.png')
             li =image_tag('images/paypal-startup-blueprint.png')
@@ -161,17 +161,15 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           
           ul.people
             -data.numa['team'].each do |row|
-              li.col-sm-2
-                .photo
+              li.col-xs-6.col-sm-4.col-md-3.col-lg-2
+                .avatar
                   = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
-                  span.linkedin
-                    = link_to '&nbsp;', "#{row['linkedin']}", :target=> '_blank'
+                  = link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+                  = link_to 'a', "http://twitter.com/#{row['twitter']}", :target=> '_blank', :class=> 'twitter'
                 strong
                   = row['name']
                   em
                     = row['role']
-                span.twitter
-                  = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
         
         section#mentors
           .col-sm-12
@@ -181,17 +179,14 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           ul.people
             -data.numa['mentors'].each do |row|
               li.col-sm-2
-                .photo
+                .avatar
                   = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
-                  span.linkedin
-                    = link_to '&nbsp;', "#{row['linkedin']}", :target=> '_blank'
-                
+                  = link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+                  = link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
                 strong.name
                   = row['name']
                   em
                     = row['role']
-                span.twitter
-                  = link_to (row['twitter']? row['twitter'] : ""), "http://twitter.com/#{row['twitter']}"
         
         section#global
           .col-sm-12
