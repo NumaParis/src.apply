@@ -47,7 +47,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
           =link_to config.site_url, :class => 'logo'
             =image_tag('logo_numa.svg', :alt => 'NUMA', :class => 'logo')
         .collapse.navbar-collapse
-          = link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn btn-apply pull-right', :target=> '_blank'
+          = link_to 'Apply Now', 'https://www.f6s.com/numaparis', :class => 'btn btn-apply pull-right', :target=> '_blank'
           ul.nav.navbar-nav.pull-right
             li= link_to 'Accelerator', '#accelerator'
             li= link_to 'Wanted', '#wanted'
@@ -86,7 +86,7 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
                 li
                   = row['agenda']
               li
-                =link_to 'Apply Now', "#f6slink", :class => 'btn btn-lg btn-apply', :target=> '_blank'
+                =link_to 'Apply Now', "https://www.f6s.com/numaparis", :class => 'btn btn-lg btn-apply', :target=> '_blank'
           
           ul.metrics.clearfix
             -data.numa['accelerator'].each do |row|
@@ -107,29 +107,36 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
             p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
           
-          ul.keypoints
+        .this.clearfix
+          ul
             -data.numa['program'].each do |row|
-              li.col-sm-3
-                =row['keypoints']? row['keypoints'] : ""
+              - if row['keypoints'] != nil
+                li
+                  =row['keypoints']
+        
+        .perks.clearfix  
+          h2.text-center Perks
+          ul
+            li
 
-          .col-sm-12
-            h3 Program Timeline
-          
-          ul.step.one.col-sm-4
-            - data.numa['program'].each do |row|
-              - if row['one'] != nil
-                li
-                  = row['one']
-          ul.step.two.col-sm-4
-            -data.numa['program'].each do |row|
-              - if row['two'] != nil
-                li
-                  =row['two']
-          ul.step.three.col-sm-4
-            -data.numa['program'].each do |row|
-              - if row['three'] != nil
-                li
-                  =row['three']
+        .col-sm-12
+          h3 Program Timeline
+        
+        ul.step.one.col-sm-4
+          - data.numa['program'].each do |row|
+            - if row['one'] != nil
+              li
+                = row['one']
+        ul.step.two.col-sm-4
+          -data.numa['program'].each do |row|
+            - if row['two'] != nil
+              li
+                =row['two']
+        ul.step.three.col-sm-4
+          -data.numa['program'].each do |row|
+            - if row['three'] != nil
+              li
+                =row['three']
 
         section#team
           .col-sm-12
@@ -191,7 +198,14 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
                   = row['role']
                 p
                   = row['story']
-        
+        section
+          ul#partners
+            li =image_tag('logo_orange.png')
+            li =image_tag('logo_bnp.png')
+            li =image_tag('logo_atelier.png')
+            li =image_tag('logo_google.png')
+            li =image_tag('logo_cisco.png')
+            li =image_tag('logo_sncf.png')
         / section.partners
 
         /sidebar

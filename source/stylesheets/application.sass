@@ -93,7 +93,6 @@ h4
 	font-style: normal
 
 
-
 // Scaffolding ---------------------------------
 .row, .content
 	width: 100%
@@ -154,9 +153,10 @@ ul.nav
 	margin-right: -$grid-gutter-width/2
 	margin-left: -$grid-gutter-width/2
 	padding-top: 58%
-	+background-image('header_image.jpg')
-	background-color: fade-out($orange, 0.1)
+	+background-image('team_sprint.jpg')
+	background-color: fade-out($orange, 0.7)
 	background-blend-mode: multiply
+	background-size: cover
 	position: relative
 	.in
 		text-align: center
@@ -285,15 +285,58 @@ ul.metrics
 ul.wanted
 	li
 		text-align: center
-		&:before
-			display: block
-			content: ''
-			background-color: #ccc
-			border-radius: 100%
-			+size(70%, 0)
-			+center-block
-			padding-top: 70%
-			margin-bottom: 10px
+		&:nth-child(1)
+			&:before
+				+background-image('various_industries.svg')
+				display: block
+				content: ''
+				border-radius: 100%
+				background-size: auto 115px
+				background-position: center
+				background-repeat: no-repeat 
+				+size(70%, 0)
+				+center-block
+				padding-top: 70%
+				margin-bottom: 10px
+		&:nth-child(2)
+			&:before
+				+background-image('early_stage.svg')
+				display: block
+				content: ''
+				border-radius: 100%
+				background-size: auto 115px
+				background-position: center
+				background-repeat: no-repeat 
+				+size(70%, 0)
+				+center-block
+				padding-top: 70%
+				margin-bottom: 10px
+		&:nth-child(3)
+			&:before
+				+background-image('mid_stage.svg')
+				display: block
+				content: ''
+				border-radius: 100%
+				background-size: auto 115px
+				background-position: center
+				background-repeat: no-repeat 
+				+size(70%, 0)
+				+center-block
+				padding-top: 70%
+				margin-bottom: 10px
+		&:nth-child(4)
+			&:before
+				+background-image('digital.svg')
+				display: block
+				content: ''
+				border-radius: 100%
+				background-size: auto 115px
+				background-position: center
+				background-repeat: no-repeat 
+				+size(70%, 0)
+				+center-block
+				padding-top: 70%
+				margin-bottom: 10px
 
 //Program ----------------------------------
 ul.keypoints
@@ -301,14 +344,89 @@ ul.keypoints
 	clear: both
 	+clearfix
 	li
-		&:before
-			content: '✔ '
+		// &:before
+			// content: ''
 		text-align: center
 		padding: 20px 0
-		+gradient-horizontal($orange, fade-out($orange, .7))
+		// +gradient-horizontal($orange, fade-out($orange, .7))
 		border: 10px solid white
 		&:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8)
 			display: none
+
+.this
+	clear: both
+	// background: red
+	position: relative
+	margin-right: - $grid-gutter-width/2
+	margin-left: - $grid-gutter-width/2
+	padding-bottom: $grid-gutter-width
+	display: table
+
+	li
+		&:before
+			display: block
+			content: ''
+			border-radius: 100%
+			+size(50%, 0)
+			+center-block
+			padding-top: 50%
+			margin-bottom: 10px
+		
+		display: table-cell
+		width: 25%
+		color: white
+		padding: $grid-gutter-width/2
+		strong
+			display: block
+			padding-bottom: 10px
+		&:nth-child(1)
+			&:before
+				+background-image('plant.svg')
+				background-size: auto 80px
+				background-position: center
+				background-repeat: no-repeat
+			padding-left: $grid-gutter-width
+			+gradient-directional(#00c863, #002fc8, -30deg)
+		&:nth-child(2)
+			&:before
+				+background-image('bowtie.svg')
+				background-size: auto 80px
+				background-position: center
+				background-repeat: no-repeat
+			+gradient-directional(#1200ff, #c80092, -30deg)
+		&:nth-child(3)
+			&:before
+				+background-image('lamp.svg')
+				background-size: auto 80px
+				background-position: center
+				background-repeat: no-repeat
+			+gradient-directional(#00baff, #e2aa00, -30deg)
+		&:nth-child(4)
+			&:before
+				+background-image('money.svg')
+				background-size: auto 80px
+				background-position: center
+				background-repeat: no-repeat
+			+gradient-directional(#480092, #3161ff, -30deg)
+			padding-right: $grid-gutter-width
+
+#partners
+	text-align: center
+	li
+		padding: $grid-gutter-width/2
+		&:nth-child(1)
+			img
+				max-width: 60px
+		&:nth-child(2)
+			img
+				max-width: 160px
+		&:nth-child(3)
+			img
+				max-width: 160px
+		display: inline-block
+		img
+			display: block
+			max-width: 120px	
 
 // Timeline ---------------
 
@@ -324,9 +442,7 @@ ul.step
 			font-size: 17px
 	li
 		margin-bottom: $box-pad/2
-		// display: inline-block
 		&:last-child
-			+transition(100ms)
 			display: block
 			position: relative
 			height: 20px
