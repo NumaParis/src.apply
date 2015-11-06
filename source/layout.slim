@@ -3,33 +3,33 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
   head
     / = partial "meta"
     title
-      - if current_article
-        = "#{emojify current_article.title, :raw} - "
-      - elsif current_page && current_page.data.title
-        = "#{emojify current_page.data.title} - "
-      - elsif content_for?(:title)
-        = "#{emojify yield_content(:title)} - "
-      = t 'blog.title'
+      / - if current_article
+      /   = "#{emojify current_article.title, :raw} - "
+      / - elsif current_page && current_page.data.title
+      /   = "#{emojify current_page.data.title} - "
+      / - elsif content_for?(:title)
+      /   = "#{emojify yield_content(:title)} - "
+      / = t 'blog.title'
     link rel='author' href='http://www.twitter.com/nedzen'
-    link rel="alternate" hreflang=alt_lang href="http://#{alt_host}#{ current_resource.url }"
-    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
-    - %w{152 144 120 114 76 72 60 67}.each do |size|
-      - size = "#{size}x#{size}"
+    / link rel="alternate" hreflang=alt_lang href="http://#{alt_host}#{ current_resource.url }"
+    / = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+    / - %w{152 144 120 114 76 72 60 67}.each do |size|
+    /   - size = "#{size}x#{size}"
       / link rel="apple-touch-icon" size=size href="/apple-touch-icon-#{size}-precomposed.png"
       / link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"
     link rel="shortcut icon" href="/favicon.png"
     link rel="icon" type="image/ico" href="/favicon.ico"
 
-    - if current_article
-      - if current_article.previous_article
-        link rel="prev" href=current_article.previous_article.url
-      - if current_article.next_article
-        link rel="next" href=current_article.next_article.url
-    - elsif paginate
-      - if prev_page
-        link rel="prev" href=prev_page.url
-      - if next_page
-        link rel="next" href=next_page.url
+    / - if current_article
+    /   - if current_article.previous_article
+    /     link rel="prev" href=current_article.previous_article.url
+    /   - if current_article.next_article
+    /     link rel="next" href=current_article.next_article.url
+    / - elsif paginate
+    /   - if prev_page
+    /     link rel="prev" href=prev_page.url
+    /   - if next_page
+    /     link rel="next" href=next_page.url
   
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
@@ -49,13 +49,13 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
         .collapse.navbar-collapse
           = link_to 'Apply Now', 'https://www.f6s.com/numaparis', :class => 'btn btn-apply pull-right', :target=> '_blank'
           ul.nav.navbar-nav.pull-right
-            li= link_to 'Accelerator', '#accelerator'
-            li= link_to 'Wanted', '#wanted'
-            li= link_to 'Program', '#program'
-            li= link_to 'Team', '#team'
-            li= link_to 'Portfolio', '#success'
-            li= link_to 'Faq', '#faq'
-            li= link_to 'How To Apply', 'http://apply.numa.paris/2015/11/05/faq/'
+            li= link_to 'Accelerator', '/#accelerator'
+            li= link_to 'Wanted', '/#wanted'
+            li= link_to 'Program', '/#program'
+            li= link_to 'Team', '/#team'
+            li= link_to 'Portfolio', '/#success'
+            li= link_to 'Faq', '/faq'
+            li= link_to 'How To Apply', 'how-to-apply-successfully'
             / li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
 
     .container
