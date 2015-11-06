@@ -507,7 +507,17 @@ ul.people
 			font-style: normal
 			font-size: 15px
 			font-family: 'UniversLTStd'
+		&:hover
+			a
+				opacity: 0.5
+		a
+			opacity: 0
+			&:hover
+				opacity: 1
 
+		
+	
+			// opacity: 0.1
 .avatar
 	+center-block
 	position: relative
@@ -519,9 +529,6 @@ ul.people
 		overflow: hidden
 
 .linkedin, .twitter
-	&:hover
-		// display: block
-	// display: none
 	bottom: 0
 	position: absolute
 	padding-top: 20px
@@ -540,9 +547,7 @@ ul.people
 	+background-image('twitter.svg')
 
 
-
-//Accelerator ----------------------------------
-
+//Stories ----------------------------------
 .stories
 	.photo
 		margin-bottom: 20px
@@ -555,7 +560,75 @@ ul.people
 		margin-bottom: $box-pad/2
 
 
-//Accelerator ----------------------------------
+//International ----------------------------------
+#google-container
+	position: relative
+	width: 100%
+	min-height: 600px
+	background-color: #e7eaf0
+
+// @media only screen and (min-width: 768px) {
+//   #google-container {
+//     height: 300px;
+//   }
+// }
+// @media only screen and (min-width: 1170px) {
+//   #google-container {
+//     height: 600px;
+//   }
+// }
+
+#cd-google-map
+	position: relative
+	margin-bottom: 0
+	padding-bottom: 0
+
+.fbx
+	display: block
+	height: 1px
+	width: 1px
+
+
+.sqb
+	font-size: 1.2em
+	cursor: pointer
+	background-color: #000
+	color: #fff
+	padding: 5px 10px
+	margin-left: 10px
+	margin-bottom: 1px
+
+
+#cd-zoom-in, #cd-zoom-out
+	height: 32px
+	width: 32px
+	background-repeat: no-repeat
+	background-size: 32px 64px
+	background-image: url("../images/cd-icon-controller.svg")
+
+#loc1.sqb
+	margin-top: 10px
+
+#loc1, #loc2, #loc3, #loc4, #loc5
+	background-image: none
+	&:hover
+		background: yellow
+		color: #000 
+
+
+.no-touch #cd-zoom-in:hover,
+.no-touch #cd-zoom-out:hover
+	background-color: #d36868
+
+@media only screen and (min-width: 768px)
+	// #cd-zoom-in, #cd-zoom-out
+	#cd-zoom-in
+		margin-top: 10px
+
+@media only screen and (min-width: 768px)
+	// #cd-zoom-in
+	#cd-zoom-out 
+		background-position: 50% -32px
 
 //Accelerator ----------------------------------
 
