@@ -9,7 +9,7 @@ gem 'dotenv'
 
 gem "middleman-favicon-maker", "~> 3.5"
 gem 'middleman', '~> 3.2.2'
-gem 'middleman-blog', '~> 3.5.0'
+# gem 'middleman-blog', '~> 3.5.0'
 gem 'middleman-deploy'
 # gem 'middleman-disqus'
 gem 'middleman-google-analytics', :github => 'ngs/middleman-google-analytics'

@@ -41,23 +41,23 @@ set :build_dir,    "build-#{lang}"
 set :partials_dir, 'partials'
 set :site_url, "http://#{cname}"
 
-activate :blog do |blog|
-  blog.permalink = "{year}/{month}/{day}/{title}/index.html"
-  blog.sources = "#{lang}/{year}-{month}-{day}-{title}.html"
-  blog.taglink = "t/{tag}/index.html"
-  blog.layout = "article"
-  blog.summary_separator = /(READMORE)/
-  blog.summary_length = 500
-  blog.year_link = "{year}/index.html"
-  blog.month_link = "{year}/{month}/index.html"
-  blog.day_link = "{year}/{month}/{day}/index.html"
-  blog.default_extension = ".md"
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
-  blog.paginate = true
-  blog.per_page = 1
-  blog.page_link = "p{num}"
-end
+# activate :blog do |blog|
+#   blog.permalink = "{year}/{month}/{day}/{title}/index.html"
+#   blog.sources = "#{lang}/{year}-{month}-{day}-{title}.html"
+#   blog.taglink = "t/{tag}/index.html"
+#   blog.layout = "article"
+#   blog.summary_separator = /(READMORE)/
+#   blog.summary_length = 500
+#   blog.year_link = "{year}/index.html"
+#   blog.month_link = "{year}/{month}/index.html"
+#   blog.day_link = "{year}/{month}/{day}/index.html"
+#   blog.default_extension = ".md"
+#   blog.tag_template = "tag.html"
+#   blog.calendar_template = "calendar.html"
+#   blog.paginate = true
+#   blog.per_page = 1
+#   blog.page_link = "p{num}"
+# end
 
 # if lang == :en
 # activate :similar, :algorithm => :'word_frequency/tree_tagger'
@@ -66,7 +66,7 @@ end
 # end
 
 
-page "/feed.xml",    layout: false
+# page "/feed.xml",    layout: false
 page "/sitemap.xml", layout: false
 page "/404.html",    directory_index: false
 
@@ -87,20 +87,20 @@ ready do
   sprockets.append_path '/lib/javascripts/'
   sprockets.append_path '/lib/stylesheets/'
 
-  def redirect_to path, res
-    proxy path, 'redirect.html', locals: { url: res.url }, layout: false
-  end
-  sitemap.resources.each do|res|
-    if res.is_a? Middleman::Blog::BlogArticle
-      redirect_to "blog#{res.url.sub(%r{/$}, '.html')}", res
-      redirect_to "blog#{res.url}index.html", res
-    elsif res.url.match %r{^/p\d+/$}
-      redirect_to "blog#{res.url.sub(%r{p(\d)}, 'page/\1')}index.html", res
-    elsif res.url.match %r{^/t/(.+)/$}
-      redirect_to "blog#{res.url.sub(%r{t/(.+)}, 'categories/\1')}index.html", res
-    elsif res.url.match %r{^/20(\d{2}[\d/]+)/$}
-      redirect_to "blog#{res.url}index.html", res
-    end
+  # def redirect_to path, res
+  #   proxy path, 'redirect.html', locals: { url: res.url }, layout: false
+  # end
+  # sitemap.resources.each do|res|
+  #   if res.is_a? Middleman::Blog::BlogArticle
+  #     redirect_to "blog#{res.url.sub(%r{/$}, '.html')}", res
+  #     redirect_to "blog#{res.url}index.html", res
+  #   elsif res.url.match %r{^/p\d+/$}
+  #     redirect_to "blog#{res.url.sub(%r{p(\d)}, 'page/\1')}index.html", res
+  #   elsif res.url.match %r{^/t/(.+)/$}
+  #     redirect_to "blog#{res.url.sub(%r{t/(.+)}, 'categories/\1')}index.html", res
+  #   elsif res.url.match %r{^/20(\d{2}[\d/]+)/$}
+  #     redirect_to "blog#{res.url}index.html", res
+  #   end
   end
 end
 
@@ -173,19 +173,6 @@ activate :google_drive, load_sheets: {
   numa: "1YQ8Q-ZeRoYhACAn_AYNhBbSzo6Lx4qjqken_mFHAKH8"
 }
 
-# data.numa['people'].each do |person|
-#   proxy "/#{person['slug']}/index.html","index.html",
-#     :locals => { :slug => person['slug'],
-#     :title => person['name'],
-#     :page_type => 'person'
-#   }
-# end
-
-# data.numa['pages'].each do |page|
-#   proxy "/#{page['slug']}/index.html", "index.html", :locals => { :slug => page['slug'], :title => page['title'], :page_type => page['name'] }
-# end
-
-
 # activate :disqus do |d|
 #   d.shortname = lang == :en ? "ngsio" : "jangsio"
 # end
@@ -199,30 +186,28 @@ end
 
 helpers do
   include EmojiHelper
+  # def alt_lang
+  #   I18n.locale.to_s == 'en' ? "fr" : "en"
+  # end
 
-  def alt_lang
-    I18n.locale.to_s == 'en' ? "fr" : "en"
-  end
+  # def alt_lang_name
+  #   I18n.locale.to_s == 'en' ? "[ FR ]" : "[ EN ]"
+  # end
 
-  def alt_lang_name
-    I18n.locale.to_s == 'en' ? "[ FR ]" : "[ EN ]"
-  end
+  # def alt_lang_longname
+  #   I18n.locale.to_s == 'en' ? "French" : "English"
+  # end
 
-  def alt_lang_longname
-    I18n.locale.to_s == 'en' ? "French" : "English"
-  end
+  # def alt_host
+  #   I18n.locale.to_s == 'en' ? "fr.apply.numa.co" : "apply.numa.co"
+  # end
 
-  def alt_host
-    I18n.locale.to_s == 'en' ? "fr.apply.numa.co" : "apply.numa.co"
-  end
+  # def alt_href
+  #   "http://#{alt_host}#{current_resource.url}"
+  # end
 
-  def alt_href
-    "http://#{alt_host}#{current_resource.url}"
-  end
-
-  def alt_link
-    link_to %Q{#{alt_lang_name}},
-      alt_href, href_lang: alt_lang, rel: "alternate", title: "read in #{alt_lang_longname}"
-  end
-
+  # def alt_link
+  #   link_to %Q{#{alt_lang_name}},
+  #     alt_href, href_lang: alt_lang, rel: "alternate", title: "read in #{alt_lang_longname}"
+  # end
 end
