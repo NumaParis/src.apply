@@ -41,23 +41,23 @@ set :build_dir,    "build-#{lang}"
 set :partials_dir, 'partials'
 set :site_url, "http://#{cname}"
 
-activate :blog do |blog|
-  blog.permalink = "{year}/{month}/{day}/{title}/index.html"
-  blog.sources = "#{lang}/{year}-{month}-{day}-{title}.html"
-  blog.taglink = "t/{tag}/index.html"
-  blog.layout = "article"
-  blog.summary_separator = /(READMORE)/
-  blog.summary_length = 500
-  blog.year_link = "{year}/index.html"
-  blog.month_link = "{year}/{month}/index.html"
-  blog.day_link = "{year}/{month}/{day}/index.html"
-  blog.default_extension = ".md"
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
-  blog.paginate = true
-  blog.per_page = 1
-  blog.page_link = "p{num}"
-end
+# activate :blog do |blog|
+#   blog.permalink = "{year}/{month}/{day}/{title}/index.html"
+#   blog.sources = "#{lang}/{year}-{month}-{day}-{title}.html"
+#   blog.taglink = "t/{tag}/index.html"
+#   blog.layout = "article"
+#   blog.summary_separator = /(READMORE)/
+#   blog.summary_length = 500
+#   blog.year_link = "{year}/index.html"
+#   blog.month_link = "{year}/{month}/index.html"
+#   blog.day_link = "{year}/{month}/{day}/index.html"
+#   blog.default_extension = ".md"
+#   blog.tag_template = "tag.html"
+#   blog.calendar_template = "calendar.html"
+#   blog.paginate = true
+#   blog.per_page = 1
+#   blog.page_link = "p{num}"
+# end
 
 # if lang == :en
 activate :similar, :algorithm => :'word_frequency/tree_tagger'
