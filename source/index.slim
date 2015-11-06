@@ -2,4 +2,254 @@
 pageable: true
 per_page: 2
 ---
-= partial "entries", locals: locals
+	section.intro
+	  .in
+	    div
+	      .heading
+	        h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
+	        p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
+	        span =link_to '&nbsp;', '#playvid', :class => 'btn play-vid'
+	.content
+	  section#accelerator
+	    .col-sm-12.col-md-7.col-lg-8
+	      h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
+	      p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
+	    
+	    .col-sm-12.col-md-5.col-lg-4
+	      ul.agenda
+	        li Agenda
+	        -data.numa['intro'].each do |row|
+	          li
+	            = row['agenda']
+	        li
+	          =link_to 'Apply Now', "https://www.f6s.com/numaparis", :class => 'btn btn-lg btn-apply', :target=> '_blank'
+	    
+	    ul.metrics.clearfix
+	      -data.numa['accelerator'].each do |row|
+	        li.col-sm-3
+	          = row['trackrecord']
+	  
+	  section#wanted
+	    .col-sm-12
+	      h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
+	      p =data.numa['wanted'].find{ |p| p.name == 'paragraph' }.content
+	    ul.wanted
+	      -data.numa['wanted'].each do |row|
+	        li.col-sm-3
+	          =row['criteria']? row['criteria'] : ""
+
+	  section#program
+	    .col-sm-8
+	      h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
+	      p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
+	    
+	  .this.clearfix
+	    ul
+	      -data.numa['program'].each do |row|
+	        - if row['keypoints'] != nil
+	          li
+	            =row['keypoints']
+	  
+	  .perks.clearfix  
+	    h2.text-center Perks that rocks !
+	    ul
+	      li =image_tag 'images/Breaz.png', :alt=> 'Breaz'
+	      li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
+	      li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
+	      li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
+	      li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
+	      li =image_tag 'images/aircall.png', :alt=> 'aircall'
+	      li =image_tag 'images/algolia.png', :alt=> 'algolia'
+	      li =image_tag 'images/amazon-web-services.png', :alt=> 'amazon-web-services'
+	      li =image_tag 'images/evernote.jpg', :alt=> 'evernote'
+	      li =image_tag 'images/front.png', :alt=> 'front'
+	      li =image_tag 'images/mention.png', :alt=> 'mention'
+	      li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
+	      li =image_tag 'images/textmaster.png', :alt=> 'textmaster'
+
+	  .col-sm-12
+	    h3 Program Timeline
+	  
+	  ul.step.one.col-sm-4
+	    - data.numa['program'].each do |row|
+	      - if row['one'] != nil
+	        li
+	          = row['one']
+	  ul.step.two.col-sm-4
+	    -data.numa['program'].each do |row|
+	      - if row['two'] != nil
+	        li
+	          =row['two']
+	  ul.step.three.col-sm-4
+	    -data.numa['program'].each do |row|
+	      - if row['three'] != nil
+	        li
+	          =row['three']
+
+	  section#team
+	    .col-sm-12
+	      h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
+	      p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
+	    
+	    ul.people
+	      -data.numa['team'].each do |row|
+	        li.col-xs-6.col-sm-4.col-md-3.col-lg-2
+	          .avatar
+	            = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
+	            = link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+	            = link_to 'a', "http://twitter.com/#{row['twitter']}", :target=> '_blank', :class=> 'twitter'
+	          strong
+	            = row['name']
+	            em
+	              = row['role']
+	  
+	  section#mentors
+	    .col-sm-12
+	      h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
+	      p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
+	    
+	    ul.people
+	      -data.numa['mentors'].each do |row|
+	        li.col-sm-2
+	          .avatar
+	            = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
+	            = link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+	            = link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
+	          strong.name
+	            = row['name']
+	            em
+	              = row['role']
+	  
+	  section#global
+	    .col-sm-12
+	      h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
+	      p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
+
+	  section#success
+	    .col-sm-12
+	      h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
+	      /p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
+	    
+	    ul.stories
+	      -data.numa['stories'].each do |row|
+	        li.col-sm-4
+	          .photo
+	            = image_tag "#{row['picture']}", :alt=>"#{row['name']}"
+	          h4.name
+	            = row['name']
+	          em.role
+	            = row['role']
+	          p
+	            = row['story']
+	  section
+	  	h2 =data.numa['partners'].find { |p| p.title == 'heading'}.content
+	    ul#partners
+	      li=image_tag 'logo_orange.png', :alt=> 'orange'
+	      li=image_tag 'logo_bnp.png', :alt=> 'bnp'
+	      li=image_tag 'logo_atelier.png', :alt=> 'atelier'
+	      li=image_tag 'logo_google.png', :alt=> 'google'
+	      li=image_tag 'logo_cisco.png', :alt=> 'cisco'
+	      li=image_tag 'logo_sncf.png', :alt=> 'sncf'
+
+
+	= partial "entries", locals: locals
+
+        /sidebar
+          / .recent.box
+          /   h3= t :recent_entries
+          /   ul
+          /     - blog.articles.select {|a| a.data[:public] }.sort { |x,y| y.date <=> x.date }[0...10].each do |article|
+          /       li
+          /         =link_to article do
+          /           =emojify article.title
+          /           time.date= article.date.strftime('%Y/%m/%d')
+          /     li.show-all
+          /       = link_to '/archives' do
+          /         = t(:show_all)
+
+            
+          / h3= t :monthly
+          / ul.tags
+          /   - blog.articles.select {|a| a.data[:public] }.group_by {|a| a.date.year }.each do |year, year_articles|
+          /     - year_articles.group_by {|a| a.date.month }.each do |month, month_articles|
+          /       li
+          /         = link_to blog_month_path(year, month) do
+          /           = Date.new(year, month, 1).strftime(t 'calendar_title.format.month')
+          /           i= month_articles.size
+
+          /.tags.box
+            /h3= t :tags
+            /ul.tags
+              / - blog.tags.sort.each do |tag, articles|
+                / li
+                  / =link_to tag_path(tag) do
+                    / =tag
+                    / i=articles.size
+
+
+        / section#sidebar-tags
+        /   header
+        /     h2= t :tags
+        /     form#tag-filter-form.form-inline role="form"
+        /       div.form-group.has-feedback
+        /         input.form-control#tag-filter-input type="search" placeholder=t(:filter_tags)
+        /         span.glyphicon.glyphicon-search.form-control-feedback
+        /   ol.nav.collapse.in#sidebar-tags-list
+        /     - blog.tags.sort.each do |tag, articles|
+        /       li.hidden
+        /         = link_to tag_path(tag) do
+        /           span.glyphicon.glyphicon-tag
+        /           | &nbsp;
+        /           = tag
+        /           span.badge.pull-right= articles.size
+        /     li.show-all
+        /       = link_to '#tag-filter-form', class: 'show-all-tags-link' do
+        /         span.glyphicon.glyphicon-plus
+        /         | &nbsp;
+        /         = t(:show_all)
+
+          / h2= t :navigation
+          / ol.nav itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement"
+          /   li
+          /     = link_to '/', itemprop: 'url' do
+          /       span itemprop='name'
+          /         = t :home
+          /   li
+          /     = link_to '/about', rel: 'author', itemprop: 'url' do
+          /       span itemprop='name'
+          /         = t :aboutme
+          /   li
+          /     - if I18n.locale.to_s == 'fr'
+          /       = link_to 'http://mariusnedelcu.com/', rel: 'alternate', itemprop: 'url', hreflang: 'en' do
+          /         span itemprop='name' Blog (English)
+          /     - else
+          /       = link_to 'http://fr.mariusnedelcu.com/', rel: 'alternate', itemprop: 'url', hreflang: 'fr' do
+          /         span itemprop='name' Français
+
+        / section#sidebar-search
+        /   form#site-search-form.form-inline {
+        /     role="form"
+        /     method="get"
+        /     action="/search/"
+        /     itemprop="potentialAction"
+        /     itemscope="itemscope"
+        /     itemtype="http://schema.org/SearchAction"
+        /   }
+        /     div.form-group.has-feedback
+        /       input.form-control#site-search-input {
+        /         type="search" placeholder=t(:search_site)
+        /         name="q" accesskey="s" required="required"
+        /       }
+        /       span.glyphicon.glyphicon-search.form-control-feedback
+        /       meta itemprop="target" content="#{config.site_url}/search/?q={q}"
+
+        / section#sidebar-bootswatch style="display:none"
+        /   h2 Theme
+        /   .btn-group
+        /     button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
+        /       span.bootswatch-theme-name
+        /       | &nbsp;
+        /       span.caret
+        /     ul.dropdown-menu.bootswatch-theme-list role="menu"
+        /       li style="padding: 1em 0; text-align: center"
+        /         i.fa.fa-refresh.fa-spin

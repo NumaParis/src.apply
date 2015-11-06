@@ -4,7 +4,7 @@
       h2 itemprop="name"
         = link_to emojify(article.title), article, itemprop: "url"
       p.meta
-        time itemprop="datePublished" datetime=article.date.to_time.strftime('%Y-%m-%dT%H:%M:%S') is="relative-time"
+        time itemprop="datePublished" datetime=article.date.to_time.strftime('%Y-%m-%dT%H:%M:%S')
           = article.date.strftime('%Y-%m-%d %H:%M')
     .article-body itemprop="articleBody"
       = preserve do
