@@ -239,6 +239,11 @@ $prefixes: ("-moz-", "-webkit-", "-ms-", "");
   height: $w;
 }
 
+@mixin position($a:1, $b:1) {
+  top: $a * 1%;
+  left: $b * 1%;
+}
+
 // Transitions
 
 @mixin transition($transition...) {

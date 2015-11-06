@@ -35,7 +35,7 @@ per_page: 2
 	      p =data.numa['wanted'].find{ |p| p.name == 'paragraph' }.content
 	    ul.wanted
 	      -data.numa['wanted'].each do |row|
-	        li.col-sm-3
+	        li.col-xs-6.col-sm-3
 	          =row['criteria']? row['criteria'] : ""
 
 	  section#program
@@ -110,7 +110,7 @@ per_page: 2
 	    
 	    ul.people
 	      -data.numa['mentors'].each do |row|
-	        li.col-sm-2
+	        li.col-xs-6.col-sm-4.col-md-3.col-lg-2
 	          .avatar
 	            = image_tag "#{row['photo']}", :alt=> "#{row['name']}"
 	            = link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
@@ -141,6 +141,56 @@ per_page: 2
 	            = row['role']
 	          p
 	            = row['story']
+	  
+	  section#international.clearfix
+	    .col-sm-3
+	      ul.inc
+	        li.new_york Techstars (new york)
+	        li.Montreal FunderFuel (Montreal)
+	        li.london Campus (london)
+	        li.Lisbon Lisbon Challenge (Lisbon)
+	        li.Mardid Tetuan Valey (Mardid)
+	        li.Berlin Hub Raum (Berlin)
+	        li.Munich Hardware.co (Munich)
+	        li.Warshow D-raft (Warshow)
+	        li.Karachi The Nest (Karachi)
+	        li.Dubai Astro Labs (Dubai)
+	        li.Sydney Fish Burners (Sydney)
+	        li.Tel_Aviv The Hive (Tel Aviv)
+	        li.Nairobi &#42;Hub_ (Nairobi)
+	        li.Johhannesburg Jozi Hub (Johhannesburg)
+	        li.Kampala Outbox (Kampala)
+	        li.Lagos Co-Creation Hub (Lagos)
+	        li.Accra iSpace (Accra)
+	        li.Venice H-farm (Venice)
+	        li.Palo_Alto Blackbox (Palo Alto)
+	        li.Durham Underground (Durham)
+	        li.Chicago 1971 (Chicago)
+	    .col-sm-9
+	      #map
+	        .point.new_york
+	        .point.Montreal
+	        .point.london
+	        .point.Lisbon
+	        .point.Mardid
+	        .point.Berlin
+	        .point.Munich
+	        .point.Warshow
+	        .point.Karachi
+	        .point.Dubai
+	        .point.Sydney
+	        .point.Tel_Aviv
+	        .point.Nairobi
+	        .point.Johhannesburg
+	        .point.Kampala
+	        .point.Lagos
+	        .point.Accra
+	        .point.Venice
+	        .point.Palo_Alto
+	        .point.Durham
+	        .point.Chicago
+
+
 	  section
 	  	h2 =data.numa['partners'].find { |p| p.title == 'heading'}.content
 	    ul#partners

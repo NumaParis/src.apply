@@ -1,10 +1,91 @@
-div hello world
+/requires :
+/= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjSkiy68CUTGVAELIKh_goNZTFRRzv9rw'
+sass:
+	#google-container
+		position: relative
+		width: 100%
+		min-height: 600px
+		background-color: #e7eaf0
+
+	// @media only screen and (min-width: 768px) {
+	//   #google-container {
+	//     height: 300px;
+	//   }
+	// }
+	// @media only screen and (min-width: 1170px) {
+	//   #google-container {
+	//     height: 600px;
+	//   }
+	// }
+
+	#cd-google-map
+		position: relative
+		margin-bottom: 0
+		padding-bottom: 0
+
+	.fbx
+		display: block
+		height: 1px
+		width: 1px
+
+
+	.sqb
+		font-size: 1.2em
+		cursor: pointer
+		background-color: #000
+		color: #fff
+		padding: 5px 10px
+		margin-left: 10px
+		margin-bottom: 1px
+
+
+	#cd-zoom-in, #cd-zoom-out
+		height: 32px
+		width: 32px
+		background-repeat: no-repeat
+		background-size: 32px 64px
+		background-image: url("../images/cd-icon-controller.svg")
+
+	#loc1.sqb
+		margin-top: 10px
+
+	#loc1, #loc2, #loc3, #loc4, #loc5
+		background-image: none
+		&:hover
+			background: yellow
+			color: #000 
+
+
+	.no-touch #cd-zoom-in:hover,
+	.no-touch #cd-zoom-out:hover
+		background-color: #d36868
+
+	@media only screen and (min-width: 768px)
+		// #cd-zoom-in, #cd-zoom-out
+		#cd-zoom-in
+			margin-top: 10px
+
+	@media only screen and (min-width: 768px)
+		// #cd-zoom-in
+		#cd-zoom-out 
+			background-position: 50% -32px
+
+section#cd-google-map
+  #google-container
+  #loc1.sqb NUMA: 39 Rue du Caire
+  #loc2.sqb La Gaîté Lyrique: 3bis Rue Papin
+  #loc3.sqb La Paillasse: 226 Rue Saint-Denis
+  #loc4.sqb ESCP: 79 Avenue de la République
+  #loc5.sqb CND: 1 Rue Victor Hugo
+  #loc6.sqb ESMOD, 12 Rue de la Rochefoucauld
+  #cd-zoom-in.sqb
+  #cd-zoom-out.sqb
 
 javascript:
 
 	var latitude = 48.867721,
 		longitude = 2.34963,
-		map_zoom = 18;
+		map_zoom = 5;
 
 	//google map custom marker icon - .png fallback for IE11
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -12,105 +93,11 @@ javascript:
 		
 	//define the basic color of your map, plus a value for saturation and brightness
 	var	main_color = '#2d313f',
-		saturation_value= -20,
-		brightness_value= 5;
-
+		saturation_value= 10,
+		brightness_value= 10;
+	
 	//we define here the style of the map
-	var style= [ 
-
-			{
-				//set saturation for the labels on the map
-				elementType: "labels",
-				stylers: [
-					{saturation: saturation_value}
-				]
-			},  
-		    {	//poi stands for point of interest - don't show these lables on the map 
-				featureType: "poi",
-				elementType: "labels",
-				stylers: [
-					{visibility: "off"}
-				]
-			},
-			{
-				//don't show highways lables on the map
-		        featureType: 'road.highway',
-		        elementType: 'labels',
-		        stylers: [
-		            {visibility: "off"}
-		        ]
-		    }, 
-			{ 	
-				//don't show local road lables on the map
-				featureType: "road.local", 
-				elementType: "labels.icon", 
-				stylers: [
-					{visibility: "off"} 
-				] 
-			},
-		{
-			featureType: 'landscape',
-			elementType: 'all',
-			stylers: [
-				{ hue: '#f3f3f3' },
-				{ saturation: -100 },
-				{ lightness: 57 },
-				{ visibility: 'simplified' }
-			]
-		},{
-			featureType: 'road.local',
-			elementType: 'geometry',
-			stylers: [
-				{ hue: '#ffbff4' },
-				{ saturation: 100 },
-				{ lightness: -13 },
-				{ visibility: 'simplified' }
-			]
-		},{
-			featureType: 'road',
-			elementType: 'labels',
-			stylers: [
-				{ hue: '#161c13' },
-				{ saturation: -81 },
-				{ lightness: -86 },
-				{ visibility: 'simplified' }
-			]
-		},{
-			featureType: 'road.arterial',
-			elementType: 'all',
-			stylers: [
-				{ hue: '#ff2dda' },
-				{ saturation: 100 },
-				{ lightness: -24 },
-				{ visibility: 'simplified' }
-			]
-		},{
-			featureType: 'water',
-			elementType: 'all',
-			stylers: [
-				{ hue: '#000000' },
-				{ saturation: -100 },
-				{ lightness: -100 },
-				{ visibility: 'simplified' }
-			]
-		},{
-			featureType: 'transit',
-			elementType: 'all',
-			stylers: [
-				{ hue: '#ffe400' },
-				{ saturation: 100 },
-				{ lightness: -33 },
-				{ visibility: 'on' }
-			]
-		},{
-			featureType: 'poi.park',
-			elementType: 'all',
-			stylers: [
-				{ hue: '#b3f5b9' },
-				{ visibility: 'on' }
-			]
-		}
-	];
+	var style= [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d8a5"},{"visibility":"on"}]}];
 
 	//set google map options
 	var map_options = {
@@ -122,20 +109,19 @@ javascript:
 	  	streetViewControl: false,
 	  	mapTypeId: google.maps.MapTypeId.ROADMAP,
 	  	scrollwheel: false,
-	  	styles: style,
+	  	styles: style
 	}
 	//inizialize the map
 	var map = new google.maps.Map(document.getElementById('google-container'), map_options);
 
-
-	function initialize() {
-	  setMarkers(map, beaches);
-	}
+	//function initialize() {
+	  //setMarkers(map, beaches);
+	//}
 
 
 	// The locations 
 	var numa = new google.maps.LatLng(48.867721, 2.34963);
-	var gaite = new google.maps.LatLng(48.86677, 2.35366);
+	var gaite = new google.maps.LatLng(12.9804128, 77.5984471);
 	var pail = new google.maps.LatLng(48.868451, 2.352168);
 	var escp = new google.maps.LatLng(48.864176, 2.380883);
 	var cnd = new google.maps.LatLng(48.894092,2.406816);
@@ -147,9 +133,6 @@ javascript:
 	    ['ESCP', 48.864176, 2.380883],
 	    ['CND', 48.894092,2.406816],
 	];
-
-
-
 
 	// var contentString = '<div id="content">'+
 	//   '<div id="siteNotice">'+
@@ -268,18 +251,26 @@ javascript:
 			map.setCenter(pail)
 		});
 		google.maps.event.addDomListener(controlUIloc4, 'click', function() {
+			var infowindow = new google.maps.InfoWindow({
+				content: 'boo <img src=\"http://numa.moscow/images/logo_thehive.png\">'
+			});
+			var marker = new google.maps.Marker({
+				position: escp,
+				map: map,
+			});
 			map.setCenter(escp)
+			infowindow.open(map,marker);
 		});
 		google.maps.event.addDomListener(controlUIloc5, 'click', function() {
-			map.setCenter(cnd)
-		    // var infowindow = new google.maps.InfoWindow({
-		    //     content: "something"
-		    // });
-		    // var marker = new google.maps.Marker({
-		    // 	position: cnd,
-		    // 	map: map,
-		    // });
-		    // infowindow.open(map,marker);
+		    var infowindow = new google.maps.InfoWindow({
+		    	content: 'boo <img src=\"http://numa.moscow/images/logo_thehive.png\">'
+		    });
+		    var marker = new google.maps.Marker({
+		    	position: cnd,
+		    	map: map,
+		    });
+		    map.setCenter(cnd)
+		    infowindow.open(map,marker);
 		});
 		google.maps.event.addDomListener(controlUIloc6, 'click', function() {
 		    map.setCenter(escp)
@@ -291,104 +282,3 @@ javascript:
 
 		//insert the zoom div on the top left of the map
 		map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
-
-/ javascript:
-/ 	var styles = [
-/ 		{
-/ 			featureType: 'landscape',
-/ 			elementType: 'all',
-/ 			stylers: [
-/ 				{ hue: '#f3f3f3' },
-/ 				{ saturation: -100 },
-/ 				{ lightness: 57 },
-/ 				{ visibility: 'simplified' }
-/ 			]
-/ 		},{
-/ 			featureType: 'road.local',
-/ 			elementType: 'geometry',
-/ 			stylers: [
-/ 				{ hue: '#ffbff4' },
-/ 				{ saturation: 100 },
-/ 				{ lightness: -13 },
-/ 				{ visibility: 'simplified' }
-/ 			]
-/ 		},{
-/ 			featureType: 'road',
-/ 			elementType: 'labels',
-/ 			stylers: [
-/ 				{ hue: '#161c13' },
-/ 				{ saturation: -81 },
-/ 				{ lightness: -86 },
-/ 				{ visibility: 'simplified' }
-/ 			]
-/ 		},{
-/ 			featureType: 'poi',
-/ 			elementType: 'all',
-/ 			stylers: [
-/ 				{ hue: '#ff0000' },
-/ 				{ saturation: 100 },
-/ 				{ lightness: -36 },
-/ 				{ visibility: 'off' }
-/ 			]
-/ 		},{
-/ 			featureType: 'road.arterial',
-/ 			elementType: 'all',
-/ 			stylers: [
-/ 				{ hue: '#ff2dda' },
-/ 				{ saturation: 100 },
-/ 				{ lightness: -24 },
-/ 				{ visibility: 'simplified' }
-/ 			]
-/ 		},{
-/ 			featureType: 'water',
-/ 			elementType: 'all',
-/ 			stylers: [
-/ 				{ hue: '#000000' },
-/ 				{ saturation: -100 },
-/ 				{ lightness: -100 },
-/ 				{ visibility: 'simplified' }
-/ 			]
-/ 		},{
-/ 			featureType: 'transit',
-/ 			elementType: 'all',
-/ 			stylers: [
-/ 				{ hue: '#ffe400' },
-/ 				{ saturation: 100 },
-/ 				{ lightness: -33 },
-/ 				{ visibility: 'on' }
-/ 			]
-/ 		},{
-/ 			featureType: 'poi',
-/ 			elementType: 'all',
-/ 			stylers: [
-/ 				{ hue: '#f3f3f3' },
-/ 				{ saturation: -100 },
-/ 				{ lightness: 79 },
-/ 				{ visibility: 'simplified' }
-/ 			]
-/ 		},{
-/ 			featureType: 'poi.government',
-/ 			elementType: 'all',
-/ 			stylers: [
-
-/ 			]
-/ 		},{
-/ 			featureType: 'poi.business',
-/ 			elementType: 'all',
-/ 			stylers: [
-
-/ 			]
-/ 		}
-/ 	];
-/ 	var options = {
-/ 		mapTypeControlOptions: {
-/ 			mapTypeIds: [ 'Styled']
-/ 		},
-/ 		center: new google.maps.LatLng(48.87792231703206, 2.3684547305107317),
-/ 		zoom: 18,
-/ 		mapTypeId: 'Styled'
-/ 	};
-/ 	var div = document.getElementById('map');
-/ 	var map = new google.maps.Map(div, options);
-/ 	var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
-/ 	map.mapTypes.set('Styled', styledMapType);

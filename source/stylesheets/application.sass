@@ -66,6 +66,7 @@ h1, h2, h3, h4, h5, h6
 
 h1
 	font-size: $font-size-root * $pi / 1.5
+	font-family: 'UniversLTStd-Bold'
 h2
 	font-family: 'UniversLTStd-Bold'
 	font-size: $font-size-root * $pi / 2
@@ -213,6 +214,8 @@ $sub : 1.5em
 
 //Accelerator ----------------------------------
 .agenda
+	max-width: 360px
+	+center-block
 	li
 		display: block
 		border-bottom: 2px solid white
@@ -285,58 +288,38 @@ ul.metrics
 ul.wanted
 	li
 		text-align: center
+		&:before
+			display: block
+			content: ''
+			+size(70%, 0)
+			+center-block
+			padding-top: 70%
+			margin-bottom: 10px
+			border-radius: 100%
 		&:nth-child(1)
 			&:before
 				+background-image('various_industries.svg')
-				display: block
-				content: ''
-				border-radius: 100%
-				background-size: auto 115px
+				background-size: auto 70%
 				background-position: center
-				background-repeat: no-repeat 
-				+size(70%, 0)
-				+center-block
-				padding-top: 70%
-				margin-bottom: 10px
+				background-repeat: no-repeat
 		&:nth-child(2)
 			&:before
 				+background-image('early_stage.svg')
-				display: block
-				content: ''
-				border-radius: 100%
-				background-size: auto 115px
+				background-size: auto 70%
 				background-position: center
-				background-repeat: no-repeat 
-				+size(70%, 0)
-				+center-block
-				padding-top: 70%
-				margin-bottom: 10px
+				background-repeat: no-repeat
 		&:nth-child(3)
 			&:before
 				+background-image('mid_stage.svg')
-				display: block
-				content: ''
-				border-radius: 100%
-				background-size: auto 115px
+				background-size: auto 70%
 				background-position: center
-				background-repeat: no-repeat 
-				+size(70%, 0)
-				+center-block
-				padding-top: 70%
-				margin-bottom: 10px
+				background-repeat: no-repeat
 		&:nth-child(4)
 			&:before
 				+background-image('digital.svg')
-				display: block
-				content: ''
-				border-radius: 100%
-				background-size: auto 115px
+				background-size: auto 70%
 				background-position: center
-				background-repeat: no-repeat 
-				+size(70%, 0)
-				+center-block
-				padding-top: 70%
-				margin-bottom: 10px
+				background-repeat: no-repeat
 
 //Program ----------------------------------
 ul.keypoints
@@ -355,13 +338,15 @@ ul.keypoints
 
 .this
 	clear: both
-	// background: red
 	position: relative
 	margin-right: - $grid-gutter-width/2
 	margin-left: - $grid-gutter-width/2
 	padding-bottom: $grid-gutter-width
+	// @media screen and (min-width: $screen-md)
 	display: table
-
+	h3
+		text-align: center
+		font-family: 'UniversLTStd-Black'
 	li
 		&:before
 			display: block
@@ -372,42 +357,48 @@ ul.keypoints
 			padding-top: 50%
 			margin-bottom: 10px
 		
-		display: table-cell
-		width: 25%
+		@media screen and (min-width: $screen-md)
+			display: table-cell
+			width: 25%
+		
 		color: white
 		padding: $grid-gutter-width/2
+		// text-shadow: 1px 0px 0px fade-out($blue, 0.8)
+
 		strong
+			b
+				font-family: 'UniversLTStd-Black'
 			display: block
 			padding-bottom: 10px
 		&:nth-child(1)
 			&:before
 				+background-image('plant.svg')
-				background-size: auto 80px
+				background-size: auto 80%
 				background-position: center
 				background-repeat: no-repeat
 			padding-left: $grid-gutter-width
-			+gradient-directional(#00c863, #002fc8, -30deg)
+			+gradient-directional($orange, $blue, -30deg)
 		&:nth-child(2)
 			&:before
 				+background-image('bowtie.svg')
-				background-size: auto 80px
+				background-size: auto 80%
 				background-position: center
 				background-repeat: no-repeat
-			+gradient-directional(#1200ff, #c80092, -30deg)
+			+gradient-directional($orange, $blue, -30deg)
 		&:nth-child(3)
 			&:before
 				+background-image('lamp.svg')
-				background-size: auto 80px
+				background-size: auto 80%
 				background-position: center
 				background-repeat: no-repeat
-			+gradient-directional(#00baff, #e2aa00, -30deg)
+			+gradient-directional($orange, $blue, -30deg)
 		&:nth-child(4)
 			&:before
 				+background-image('money.svg')
-				background-size: auto 80px
+				background-size: auto 80%
 				background-position: center
 				background-repeat: no-repeat
-			+gradient-directional(#480092, #3161ff, -30deg)
+			+gradient-directional($orange, $blue, -30deg)
 			padding-right: $grid-gutter-width
 
 #partners
@@ -559,78 +550,65 @@ ul.people
 		display: block
 		margin-bottom: $box-pad/2
 
-
 //International ----------------------------------
-#google-container
-	position: relative
-	width: 100%
-	min-height: 600px
-	background-color: #e7eaf0
 
-// @media only screen and (min-width: 768px) {
-//   #google-container {
-//     height: 300px;
-//   }
-// }
-// @media only screen and (min-width: 1170px) {
-//   #google-container {
-//     height: 600px;
-//   }
-// }
+// #international
 
-#cd-google-map
-	position: relative
-	margin-bottom: 0
-	padding-bottom: 0
-
-.fbx
-	display: block
-	height: 1px
-	width: 1px
-
-
-.sqb
-	font-size: 1.2em
-	cursor: pointer
-	background-color: #000
-	color: #fff
-	padding: 5px 10px
-	margin-left: 10px
-	margin-bottom: 1px
-
-
-#cd-zoom-in, #cd-zoom-out
-	height: 32px
-	width: 32px
+#map
+	+background-image('map.svg')
+	background-size: 100% auto
 	background-repeat: no-repeat
-	background-size: 32px 64px
-	background-image: url("../images/cd-icon-controller.svg")
-
-#loc1.sqb
-	margin-top: 10px
-
-#loc1, #loc2, #loc3, #loc4, #loc5
-	background-image: none
-	&:hover
-		background: yellow
-		color: #000 
-
-
-.no-touch #cd-zoom-in:hover,
-.no-touch #cd-zoom-out:hover
-	background-color: #d36868
-
-@media only screen and (min-width: 768px)
-	// #cd-zoom-in, #cd-zoom-out
-	#cd-zoom-in
-		margin-top: 10px
-
-@media only screen and (min-width: 768px)
-	// #cd-zoom-in
-	#cd-zoom-out 
-		background-position: 50% -32px
-
-//Accelerator ----------------------------------
+	padding-top: 56%
+	height: 0px
+	overflow: hidden
+	position: relative
+.point
+	position: absolute
+	background: $blue
+	position: absolute
+	+square(12px)
+	border-radius: 50%
+	&.new_york
+		+position(39,27.9)
+	&.Montreal
+		+position(33.2,27.3)
+	&.london
+		+position(30.6,46)
+	&.Lisbon
+		+position(41,43.5)
+	&.Mardid
+		+position(43.1,44.9)
+	&.Berlin
+		+position(32.5,49.4)
+	&.Munich
+		+position(35.7,49.4)
+	&.Warshow
+		+position(29.3,55.3)
+	&.Karachi
+		+position(44.8,64.8)
+	&.Dubai
+		+position(51.8,62.4)
+	&.Sydney
+		+position(77.5,90.5)
+	&.Tel_Aviv
+		+position(46, 57.3)
+	&.Nairobi
+		+position(62,58.1)
+	&.Johhannesburg
+		+position(76.4,52.4)
+	&.Kampala
+		+position(60,55.9)
+	&.Lagos
+		+position(58.5,48.1)
+	&.Accra
+		+position(58.5,45)
+	&.Venice
+		+position(38.8,50.7)
+	&.Palo_Alto
+		+position(46.2,13.6)
+	&.Durham
+		+position(42.3,25.6)
+	&.Chicago
 
 // Site Parts -----------------------------------
 ul.social // social links in the bootom footer
@@ -657,7 +635,6 @@ ul.social // social links in the bootom footer
 
 footer
 	clear: both
-
 
 
 

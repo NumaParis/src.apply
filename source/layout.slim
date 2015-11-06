@@ -57,31 +57,13 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             li= link_to 'Faq', '#faq'
             li= link_to 'How To Apply', '#faq'
             / li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
-    
-    .container
 
+    .container
       - if content_for? :main
         == yield_content :main
       - else
         main == yield
 
-      / div.test 
-        / = data.numa['pages'].find{ |p| p.name == 'intro' }.content
-      
-      section#cd-google-map
-        #google-container
-        #loc1.sqb NUMA: 39 Rue du Caire
-        #loc2.sqb La Gaîté Lyrique: 3bis Rue Papin
-        #loc3.sqb La Paillasse: 226 Rue Saint-Denis
-        #loc4.sqb ESCP: 79 Avenue de la République
-        #loc5.sqb CND: 1 Rue Victor Hugo
-        #loc6.sqb ESMOD, 12 Rue de la Rochefoucauld
-        #cd-zoom-in.sqb
-        #cd-zoom-out.sqb
-      
-      = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjSkiy68CUTGVAELIKh_goNZTFRRzv9rw'
-      = partial "gmap"
-      
       footer
         = partial "socialmedia"
 
