@@ -1,7 +1,7 @@
 ---
 en:
   search_site: 'Search article'
-  search_result: "Search Result:"
+  search_result: 'Search Result:'
   links: Links
   similar_articles: Similar Articles
   archives: Archives
@@ -29,12 +29,12 @@ en:
       month: "%b, %Y"
       year: "%Y"
   blog:
-    url: http://mariusnedelcu.com/
-    title: Marius Nedelcu
-    cname: mariusnedelcu.com
-    description: Hacking recipes in my life.
+    url: http://apply.numa.co
+    title: Apply for startup acceleration at NUMA
+    cname: apply.numa.co
+    description: The New Season for startup acceleration is now open
   author:
-    name: Marius Nedelcu
+    name: 'The communication team at NUMA Paris'
   tag_title:
     text: "#%{tag}"
     html: "#%{tag}"

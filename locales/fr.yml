@@ -29,12 +29,12 @@ fr:
       month: "%b, %Y"
       year: "%Y"
   blog:
-    url: http://fr.mariusnedelcu.com/
-    title: 'marius Nedelcu voici mon sit web'
-    cname: fr.mariusnedelcu.com
-    description: 'je suis donc je suis ici oui'
+    url: http://apply.numa.co
+    title: Apply for startup acceleration at NUMA
+    cname: apply.numa.co
+    description: The New Season for startup acceleration is now open
   author:
-    name: 'mon nom ici Marius'
+    name: 'The communication team at NUMA Paris'
   tag_title:
     text: "tagged: &quot;%{tag}&quot;"
     html: "tagged: <q>%{tag}</q>"
