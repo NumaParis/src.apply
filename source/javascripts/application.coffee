@@ -20,6 +20,7 @@ $('.navbar-collapse ul li a').click ->
   $('.navbar-toggle:visible').click()
   return
 
+
 # ---
 # this smoothscrolls the page
 # ---

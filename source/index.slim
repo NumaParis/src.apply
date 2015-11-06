@@ -43,48 +43,48 @@ per_page: 2
 				h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
 				p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
 			
-		.this.clearfix
-			ul
-				-data.numa['program'].each do |row|
-					- if row['keypoints'] != nil
-						li
-							=row['keypoints']
-		
-		.perks.clearfix  
-			h2.text-center Perks that rocks !
-			ul
-				li =image_tag 'images/Breaz.png', :alt=> 'Breaz'
-				li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
-				li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
-				li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
-				li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
-				li =image_tag 'images/aircall.png', :alt=> 'aircall'
-				li =image_tag 'images/algolia.png', :alt=> 'algolia'
-				li =image_tag 'images/amazon-web-services.png', :alt=> 'amazon-web-services'
-				li =image_tag 'images/evernote.jpg', :alt=> 'evernote'
-				li =image_tag 'images/front.png', :alt=> 'front'
-				li =image_tag 'images/mention.png', :alt=> 'mention'
-				li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
-				li =image_tag 'images/textmaster.png', :alt=> 'textmaster'
+			.this.clearfix
+				ul
+					-data.numa['program'].each do |row|
+						- if row['keypoints'] != nil
+							li
+								=row['keypoints']
+			
+			.perks.clearfix 
+				h2.text-center Perks that rocks !
+				ul
+					li =image_tag 'images/Breaz.png', :alt=> 'Breaz'
+					li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
+					li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
+					li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
+					li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
+					li =image_tag 'images/aircall.png', :alt=> 'aircall'
+					li =image_tag 'images/algolia.png', :alt=> 'algolia'
+					li =image_tag 'images/amazon-web-services.png', :alt=> 'amazon-web-services'
+					li =image_tag 'images/evernote.jpg', :alt=> 'evernote'
+					li =image_tag 'images/front.png', :alt=> 'front'
+					li =image_tag 'images/mention.png', :alt=> 'mention'
+					li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
+					li =image_tag 'images/textmaster.png', :alt=> 'textmaster'
 
-		.col-sm-12
-			h3 Program Timeline
-		
-		ul.step.one.col-sm-4
-			- data.numa['program'].each do |row|
-				- if row['one'] != nil
-					li
-						= row['one']
-		ul.step.two.col-sm-4
-			-data.numa['program'].each do |row|
-				- if row['two'] != nil
-					li
-						=row['two']
-		ul.step.three.col-sm-4
-			-data.numa['program'].each do |row|
-				- if row['three'] != nil
-					li
-						=row['three']
+			.col-sm-12
+				h3 Program Timeline
+			
+			ul.step.one.col-sm-4
+				- data.numa['program'].each do |row|
+					- if row['one'] != nil
+						li
+							= row['one']
+			ul.step.two.col-sm-4
+				-data.numa['program'].each do |row|
+					- if row['two'] != nil
+						li
+							=row['two']
+			ul.step.three.col-sm-4
+				-data.numa['program'].each do |row|
+					- if row['three'] != nil
+						li
+							=row['three']
 
 		section#team
 			.col-sm-12
