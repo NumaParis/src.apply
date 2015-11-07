@@ -23,24 +23,25 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
     nav.navbar.navbar-fixed-top#mainnav itemscope="itemscope" itemtype="http://www.search_sitema.org/SiteNavigationElement"
       .container
         .navbar-header
-          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
+          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false"
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
           =link_to config.site_url, :class => 'logo'
-            =image_tag('logo_numa.svg', :alt => 'NUMA', :class => 'logo')
-        .collapse.navbar-collapse
-          = link_to 'Apply Now', 'https://www.f6s.com/numaparis', :class => 'btn btn-apply pull-right', :target=> '_blank'
-          ul.nav.navbar-nav.pull-right
-            li= link_to 'Accelerator', '/#accelerator'
-            li= link_to 'Wanted', '/#wanted'
-            li= link_to 'Program', '/#program'
-            li= link_to 'Team', '/#team'
-            li= link_to 'Portfolio', '/#success'
-            li= link_to 'Faq', '/faq'
-            li= link_to 'How To Apply', '/how-to-apply-successfully'
-
+            =image_tag('logo_numa.svg', :alt => 'NUMA')
+        = link_to 'Apply Now', 'https://www.f6s.com/numaparis', :class => 'btn btn-apply', :target=> '_blank'
+        .collapse.navbar-collapse#navigation
+          /-if current_page.url === '/'
+          ul.nav.navbar-nav
+            li= current_page.url == "/" ? link_to('Accelerator', '#accelerator') : link_to('Accelerator', '/#accelerator')
+            li= current_page.url == "/" ? link_to('Wanted', '#wanted') : link_to('Wanted', '/#wanted')
+            li= current_page.url == "/" ? link_to('Program', '#program') : link_to('Program', '/#program')
+            li= current_page.url == "/" ? link_to('Team', '#team') : link_to('Team', '/#team')
+            li= current_page.url == "/" ? link_to('Portfolio', '#success') : link_to('Portfolio', '/#success')
+            li= link_to 'Faq', 'faq'
+            li= link_to 'How To', 'how-to-apply-successfully'
+          / -else
     .container
       main == yield
       footer

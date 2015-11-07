@@ -65,15 +65,15 @@ h1, h2, h3, h4, h5, h6
 	margin-bottom: $box-pad
 
 h1
-	font-size: $font-size-root * $pi / 1.5
+	font-size: $font-size-base * $pi / 1.5
 	font-family: 'UniversLTStd-Bold'
 h2
 	font-family: 'UniversLTStd-Bold'
-	font-size: $font-size-root * $pi / 2
+	font-size: $font-size-base * $pi / 2
 h3
-	font-size: $font-size-root * $pi / 2.5
+	font-size: $font-size-base * $pi / 2.5
 h4
-	font-size: $font-size-root
+	font-size: $font-size-base
 
 @font-face
 	font-family: 'UniversLTStd'
@@ -93,7 +93,6 @@ h4
 	font-weight: normal
 	font-style: normal
 
-
 // Scaffolding ---------------------------------
 .row, .content
 	width: 100%
@@ -105,8 +104,14 @@ h4
 
 // Header --------------------------------------
 .logo
-	padding: 15px 0px 0px 0
+	float: left
+	padding: $box-pad/2 $box-pad/2 0
 	max-width: 110px
+	display: block
+	@media screen and (min-width: $screen-sm)
+		padding-left: 0px
+	@media screen and (min-width: $screen-md)
+		margin-right: $box-pad
 	strong
 		font-weight: normal
 		display: none
@@ -117,37 +122,55 @@ nav.navbar
 	+background-image('noise_mask_40.png')
 	background-color: #d5d5d5
 	padding-top: 7px
-	border-bottom: 0px 
-	// &.top-nav-collapse
+	border-bottom: 0px
 	div.container
-		padding-left: 0
-		padding-right: 0
+		@media screen and (min-width: $screen-sm)
+			padding-left: 0
+			padding-right: 0
 		// background: transparent
 		// padding: 0
 	.btn-apply
-		padding-left: 2em
-		padding-right: 2em
+		@media screen and (max-width: $screen-sm)
+			position: absolute
+			top: 7px
+			right: 80px
+		@media screen and (min-width: $screen-md)
+			padding-left: 2em
+			padding-right: 2em
+		float: right
 		margin-top: 8px
-		margin-left: 15px
+		font-size: $font-size-small
 
 ul.nav
+	float: left
 	li
 		+transition(200ms)
 		border-bottom: 5px solid transparent
 		&.active
-			// background: white
 			border-bottom: 5px solid white
 			a
 				color: $blue
+			// background: white
 		a
 			&:hover,
 			&:active,
 			&:focus
 				background: transparent
 				text-decoration: underline
-			padding-left: 10px
-			padding-right: 10px 
-			font-family: UniversLTStd-Bold
+			@media screen and (min-width: $screen-md)
+				padding-left: 10px
+				padding-right: 10px 
+			padding-left: 8px
+			padding-right: 8px 
+			font-size: 15px
+			font-family: 'UniversLTStd-Bold'
+
+.navbar-toggle
+	background: #e6e6e6
+	.icon-bar
+		background: #000
+	.collapsed
+		// background: green
 
 // Intro --------------------------------------
 .intro
@@ -159,8 +182,9 @@ ul.nav
 	background-blend-mode: multiply
 	background-size: cover
 	position: relative
-	.in
+	.wrap
 		text-align: center
+		+stretch
 		> div
 			display: table
 			+square(100%)
@@ -209,9 +233,6 @@ $sub : 1.5em
 		+square(75px)
 		vertical-align: middle
 
-.in
-	+stretch
-
 //Accelerator ----------------------------------
 .agenda
 	max-width: 360px
@@ -235,8 +256,7 @@ $sub : 1.5em
 			text-align: center
 			padding-top: $box-pad
 			border-bottom: none
-			.btn
-				font-weight: bold
+			.btn-apply
 				padding-left: 2em
 				padding-right: 2em
 	
@@ -633,11 +653,7 @@ ul.social // social links in the bootom footer
 	&.btn-apply
 		background: $blue
 		color: white
+		font-family: 'UniversLTStd-Bold'
 
 footer
 	clear: both
-
-
-// -------------------------------------
-// Portfolio View ----------------------
-// -------------------------------------
