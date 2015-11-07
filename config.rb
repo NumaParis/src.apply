@@ -131,19 +131,19 @@ configure :build do
   ignore '.*.swp'
   ignore '_drafts'
   ignore 'redirect.html'
-  # if lang == :en
-  #   ignore '/about/index.fr.html'
-  #   ignore '/fr/*'
-  #   activate :google_analytics do |ga|
-  #     ga.tracking_id = 'UA-68991286-1'
-  #   end
-  # else
-  #   ignore '/about/index.en.html'
-  #   ignore '/en/*'
-  #   activate :google_analytics do |ga|
-  #     ga.tracking_id = 'UA-68991286-2'
-  #   end
-  # end
+  if lang == :en
+    # ignore '/about/index.fr.html'
+    # ignore '/fr/*'
+    activate :google_analytics do |ga|
+      ga.tracking_id = 'UA-68991286-1'
+    end
+  else
+    # ignore '/about/index.en.html'
+    # ignore '/en/*'
+    activate :google_analytics do |ga|
+      ga.tracking_id = 'UA-69424138-4'
+    end
+  end
   activate :favicon_maker, :icons => {
     "favicon-hires.png" => [
       { icon: "apple-touch-icon-152x152-precomposed.png" },
