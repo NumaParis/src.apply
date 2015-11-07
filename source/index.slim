@@ -37,7 +37,7 @@ ogp:
 				h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
 				p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
 			
-			.col-sm-12.col-md-5.col-lg-4
+			#agenda.col-sm-12.col-md-5.col-lg-4
 				ul.agenda
 					li Agenda
 					-data.numa['intro'].each do |row|
@@ -78,7 +78,6 @@ ogp:
 					li =image_tag 'images/Breaz.png', :alt=> 'Breaz'
 					li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
 					li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
-					li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
 					li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
 					li =image_tag 'images/aircall.png', :alt=> 'aircall'
 					li =image_tag 'images/algolia.png', :alt=> 'algolia'
@@ -88,6 +87,7 @@ ogp:
 					li =image_tag 'images/mention.png', :alt=> 'mention'
 					li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
 					li =image_tag 'images/textmaster.png', :alt=> 'textmaster'
+					li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
 
 			.col-sm-12
 				h3 Program Timeline
@@ -146,68 +146,71 @@ ogp:
 			.col-sm-12
 				h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
 				p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
-			.col-sm-3
-				ul.inc
-					li.new_york Techstars (new york)
-					li.Montreal FunderFuel (Montreal)
-					li.london Campus (london)
-					li.Lisbon Lisbon Challenge (Lisbon)
-					li.Mardid Tetuan Valey (Mardid)
-					li.Berlin Hub Raum (Berlin)
-					li.Munich Hardware.co (Munich)
-					li.Warshow D-raft (Warshow)
-					li.Karachi The Nest (Karachi)
-					li.Dubai Astro Labs (Dubai)
-					li.Sydney Fish Burners (Sydney)
-					li.Tel_Aviv The Hive (Tel Aviv)
-					li.Nairobi &#42;Hub_ (Nairobi)
-					li.Johhannesburg Jozi Hub (Johhannesburg)
-					li.Kampala Outbox (Kampala)
-					li.Lagos Co-Creation Hub (Lagos)
-					li.Accra iSpace (Accra)
-					li.Venice H-farm (Venice)
-					li.Palo_Alto Blackbox (Palo Alto)
-					li.Durham Underground (Durham)
-					li.Chicago 1971 (Chicago)
-			.col-sm-9
-				#map
-					.point.new_york
-					.point.Montreal
-					.point.london
-					.point.Lisbon
-					.point.Mardid
-					.point.Berlin
-					.point.Munich
-					.point.Warshow
-					.point.Karachi
-					.point.Dubai
-					.point.Sydney
-					.point.Tel_Aviv
-					.point.Nairobi
-					.point.Johhannesburg
-					.point.Kampala
-					.point.Lagos
-					.point.Accra
-					.point.Venice
-					.point.Palo_Alto
-					.point.Durham
-					.point.Chicago
+			
+			.le-mapcontainer.clearfix
+				.col-sm-4.col-md-3.col-lg-3
+					ul.inc
+						li.new_york Techstars (new york)
+						li.Montreal FunderFuel (Montreal)
+						li.london Campus (london)
+						li.Lisbon Lisbon Challenge (Lisbon)
+						li.Mardid Tetuan Valey (Mardid)
+						li.Berlin Hub Raum (Berlin)
+						li.Munich Hardware.co (Munich)
+						li.Warshow D-raft (Warshow)
+						li.Karachi The Nest (Karachi)
+						li.Dubai Astro Labs (Dubai)
+						li.Sydney Fish Burners (Sydney)
+						li.Tel_Aviv The Hive (Tel Aviv)
+						li.Nairobi &#42;Hub_ (Nairobi)
+						li.Johhannesburg Jozi Hub (Johhannesburg)
+						li.Kampala Outbox (Kampala)
+						li.Lagos Co-Creation Hub (Lagos)
+						li.Accra iSpace (Accra)
+						li.Venice H-farm (Venice)
+						li.Palo_Alto Blackbox (Palo Alto)
+						li.Durham Underground (Durham)
+						li.Chicago 1971 (Chicago)
+				.col-sm-8.col-md-9.col-lg-9
+					#map
+						.point.new_york
+						.point.Montreal
+						.point.london
+						.point.Lisbon
+						.point.Mardid
+						.point.Berlin
+						.point.Munich
+						.point.Warshow
+						.point.Karachi
+						.point.Dubai
+						.point.Sydney
+						.point.Tel_Aviv
+						.point.Nairobi
+						.point.Johhannesburg
+						.point.Kampala
+						.point.Lagos
+						.point.Accra
+						.point.Venice
+						.point.Palo_Alto
+						.point.Durham
+						.point.Chicago
 		
 		section#success
 			.col-sm-12
 				h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
 				/p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
-			ul.stories
+			ul.stories.clearfix
 				-data.numa['stories'].each do |row|
-					li.col-sm-4
+					li.col-md-4
 						.photo
 							= image_tag "#{row['picture']}", :alt=>"#{row['name']}"
 						h4.name
 							= row['name']
 						em.role
 							= row['role']
-						p
-							= row['story']
+						blockquote.story
+							p
+								= row['story']
 
 		section#partners
 			h2 =data.numa['partners'].find { |p| p.title == 'heading'}.content
