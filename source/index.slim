@@ -8,7 +8,9 @@ per_page: 2
 				.heading
 					h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
 					p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
-					span =link_to '&nbsp;', '#playvid', :class => 'btn play-vid'
+					span 
+						| <a class="btn play-vid venobox_custom" href="https://www.youtube.com/watch?v=O6qXMYQb1_I" data-type="youtube"></a>	
+
 	.content
 		section#accelerator
 			.col-sm-12.col-md-7.col-lg-8
@@ -196,9 +198,6 @@ per_page: 2
 				li=image_tag 'logo_google.png', :alt=> 'google'
 				li=image_tag 'logo_cisco.png', :alt=> 'cisco'
 				li=image_tag 'logo_sncf.png', :alt=> 'sncf'
-
-
-	= partial "entries", locals: locals
 
 				/sidebar
 					/ .recent.box

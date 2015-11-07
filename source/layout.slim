@@ -30,10 +30,10 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
     /     link rel="prev" href=prev_page.url
     /   - if next_page
     /     link rel="next" href=next_page.url
-  
+    
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
-  
+    = partial 'venobox'
   body data-spy="scroll" data-target="#mainnav"
     / bootstrap 3 compatible
     nav.navbar.navbar-fixed-top#mainnav itemscope="itemscope" itemtype="http://www.search_sitema.org/SiteNavigationElement"
@@ -59,10 +59,8 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             / li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
 
     .container
-      - if content_for? :main
-        == yield_content :main
-      - else
-        main == yield
+      
+      main == yield
 
       footer
         = partial "socialmedia"
