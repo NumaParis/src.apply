@@ -13,15 +13,6 @@ $(window).scroll ->
   return
 
 # ---
-# Closes the Responsive Menu on Menu Item Click
-# ---
-
-$('.navbar-collapse ul li a').click ->
-  $('.navbar-toggle:visible').click()
-  return
-
-
-# ---
 # this smoothscrolls the page
 # ---
 
@@ -38,6 +29,11 @@ $ ->
 # ---
 
 $ ->
+  
+  $('.navbar-collapse ul li a').click ->
+    $('.navbar-toggle:visible').click()
+    return
+
   $('.step li:last-child').click ->
     $(this).toggleClass('more-info')
   return

@@ -18,6 +18,9 @@ body
 	>
 		.container
 			background: white
+			@media screen and (max-width: $screen-sm)
+				padding-left: 0
+				padding-right: 0
 	
 // handling images
 // **********************
@@ -178,7 +181,9 @@ ul.nav
 	margin-left: -$grid-gutter-width/2
 	padding-top: 58%
 	+background-image('team_sprint.jpg')
-	background-color: fade-out($orange, 0.7)
+	background-color: fade-out($orange, 0.6)
+	@media screen and (min-width: $screen-sm)
+		background-color: fade-out($orange, 0.7)
 	background-blend-mode: multiply
 	background-size: cover
 	position: relative
@@ -189,8 +194,6 @@ ul.nav
 			display: table
 			+square(100%)
 
-$h1: 4.7em
-$sub : 1.5em
 .heading
 	display: table-cell
 	color: white
@@ -198,43 +201,55 @@ $sub : 1.5em
 	> *
 		max-width: 800px
 		+center-block
-	
-	h1
+	h1, p
 		font-family: 'UniversLTStd-Bold'
+	h1
+		padding-top: $grid-gutter-width
+		padding-left: $grid-gutter-width
+		padding-right: $grid-gutter-width
 		font-weight: normal
-		font-size: $h1
-		line-height: 1em
 		margin-bottom: 10px
+		line-height: 1em
+		text-shadow: 1px 1px 14px fade-out(#000, .2)
 	p
-		font-size: $sub
-	span
-		// display: block
-		// height: 80px
+		font-size: 1em
+	
+	@media screen and (min-width: $screen-xs)
+		h1
+			font-size: 2.2em
+		p
+			font-size: 1.1em
+	
+	@media screen and (min-width: $screen-sm)
+		h1
+			font-size: 3.5em
+		p
+			font-size: 1.5em
 
-// .people
-
+	@media screen and (min-width: $screen-md)
+		h1
+			font-size: 3.5em
+		p
+			font-size: 1.5em
+	
 .btn
 	&:focus, &:active
 		box-shadow: none
 	&.play-vid
-		// &:hover
-			// +square(80px)
-		// display: none
-		// color: white
-		// font-size: $sub
-		// text-decoration: underline
-		// &:after
-			// content: ''
-		+center-block
-		+transition(100ms)
 		position: relative
+		vertical-align: middle
 		+background-image('icon_play.svg')
 		background-size: 100% auto
-		+square(75px)
-		vertical-align: middle
+		+center-block
+		+square(35px)
+		@media screen and (min-width: $screen-sm)
+			+square(75px)
 
 //Accelerator ----------------------------------
 .agenda
+	@media screen and (max-width: $screen-sm)
+		margin-top: $grid-gutter-width
+		margin-bottom: $grid-gutter-width
 	max-width: 360px
 	+center-block
 	li
@@ -277,6 +292,9 @@ ul.metrics
 	padding: $box-pad 0
 	border-bottom: 1px solid $orange
 	li
+		@media screen and (max-width: $screen-sm)
+			min-height: 160px
+		
 		&:last-child
 			&:after
 				display: none
@@ -308,6 +326,12 @@ ul.metrics
 ul.wanted
 	li
 		text-align: center
+		@media screen and (max-width: $screen-sm)
+			strong
+				min-height: 60px
+				display: block
+				font-family: 'UniversLTStd-Bold'
+
 		&:before
 			display: block
 			content: ''
@@ -347,11 +371,8 @@ ul.keypoints
 	clear: both
 	+clearfix
 	li
-		// &:before
-			// content: ''
 		text-align: center
 		padding: 20px 0
-		// +gradient-horizontal($orange, fade-out($orange, .7))
 		border: 10px solid white
 		&:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8)
 			display: none
@@ -630,6 +651,11 @@ ul.people
 		+position(42.3,25.6)
 	&.Chicago
 		+position(36.2,13.6)
+
+// Site Parts -----------------------------------
+
+.toppad
+	padding-top: 70px
 
 // Site Parts -----------------------------------
 ul.social // social links in the bootom footer
