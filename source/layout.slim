@@ -1,41 +1,25 @@
 doctype 5
 html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/WebSite"
-  head
-    / = partial "meta"
+  head    
+    = partial "meta"
     title
-      / - if current_article
-      /   = "#{emojify current_article.title, :raw} - "
-      / - elsif current_page && current_page.data.title
-      /   = "#{emojify current_page.data.title} - "
-      / - elsif content_for?(:title)
-      /   = "#{emojify yield_content(:title)} - "
-      / = t 'blog.title'
-    link rel='author' href='http://www.twitter.com/nedzen'
-    / link rel="alternate" hreflang=alt_lang href="http://#{alt_host}#{ current_resource.url }"
-    / = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
-    / - %w{152 144 120 114 76 72 60 67}.each do |size|
-    /   - size = "#{size}x#{size}"
-      / link rel="apple-touch-icon" size=size href="/apple-touch-icon-#{size}-precomposed.png"
-      / link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"
+      - if current_page && current_page.data.title
+        = "#{emojify current_page.data.title} - "
+      - elsif content_for?(:title)
+        = "#{emojify yield_content(:title)} - "
+      = t 'blog.title'
+    link rel='author' href='http://www.twitter.com/numaparis'
+    - %w{152 144 120 114 76 72 60 67}.each do |size|
+      - size = "#{size}x#{size}"
+      link rel="apple-touch-icon" size=size href="/apple-touch-icon-#{size}-precomposed.png"
+      link rel="apple-touch-icon" href="/apple-touch-icon-precomposed.png"
     link rel="shortcut icon" href="/favicon.png"
     link rel="icon" type="image/ico" href="/favicon.ico"
-
-    / - if current_article
-    /   - if current_article.previous_article
-    /     link rel="prev" href=current_article.previous_article.url
-    /   - if current_article.next_article
-    /     link rel="next" href=current_article.next_article.url
-    / - elsif paginate
-    /   - if prev_page
-    /     link rel="prev" href=prev_page.url
-    /   - if next_page
-    /     link rel="next" href=next_page.url
     
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = partial 'venobox'
   body data-spy="scroll" data-target="#mainnav"
-    / bootstrap 3 compatible
     nav.navbar.navbar-fixed-top#mainnav itemscope="itemscope" itemtype="http://www.search_sitema.org/SiteNavigationElement"
       .container
         .navbar-header
@@ -56,20 +40,10 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             li= link_to 'Portfolio', '/#success'
             li= link_to 'Faq', '/faq'
             li= link_to 'How To Apply', '/how-to-apply-successfully'
-            / li= link_to 'Apply Now', 'https://www.f6s.com/', :class => 'btn-apply'
 
     .container
-      
       main == yield
-
       footer
         = partial "socialmedia"
-
-        / .credit
-        /   p
-        /     | Proudly hosted on #{ link_to 'GitHub Pages', 'http://pages.github.com', rel: 'nofollow' }.&nbsp;
-        /     | Theme by #{ link_to 'United', 'http://bootswatch.com/united/', rel: 'nofollow', class: 'bootswatch-link' } from #{ link_to 'Bootswatch', 'http://bootswatch.com/', rel: 'nofollow' }.&nbsp;
-        /     | Built on CircleCI #{ link_to "build##{ENV['CIRCLE_BUILD_NUM']}", "https://circleci.com/gh/ngs/sources.ngs.io/#{ENV['CIRCLE_BUILD_NUM']}", rel: 'nofollow' } with commit #{ link_to (ENV['CIRCLE_SHA1']||'123456789abcdef')[0, 7], ENV['CIRCLE_COMPARE_URL'], rel: 'nofollow' }.
-        /   p Copyright &copy; #{ Time.now.year } #{ link_to 'Atsushi Nagase', 'http://ngs.io/', rel: 'copyright' } all rights reserved with all articles and pictures. Everything else in #{ link_to 'the repository', 'https://github.com/ngs/source.ngs.io/' } is #{ link_to 'MIT licensed', 'https://github.com/ngs/sources.ngs.io/blob/master/LICENSE.md' }.
-
+        
     = google_analytics_universal_tag

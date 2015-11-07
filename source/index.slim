@@ -1,6 +1,26 @@
 ---
-pageable: true
-per_page: 2
+ogp:
+  og:
+    description: 'This is my fixture Middleman site.'
+    image:
+      '': http://mydomain.tld/path/to/fbimage.png
+      secure_url: https://secure.mydomain.tld/path/to/fbimage.png
+      type: image/png
+      width: 400
+      height: 300
+    locale:
+      '': en_us
+      alternate:
+        - ja_jp
+        - zh_tw
+  fb:
+    description: 'This is my fixture Middleman site.'
+    image:
+      '': http://mydomain.tld/path/to/fbimage.png
+      secure_url: https://secure.mydomain.tld/path/to/fbimage.png
+      type: image/png
+      width: 400
+      height: 300
 ---
 	section.intro
 		.in
@@ -198,103 +218,3 @@ per_page: 2
 				li=image_tag 'logo_google.png', :alt=> 'google'
 				li=image_tag 'logo_cisco.png', :alt=> 'cisco'
 				li=image_tag 'logo_sncf.png', :alt=> 'sncf'
-
-				/sidebar
-					/ .recent.box
-					/   h3= t :recent_entries
-					/   ul
-					/     - blog.articles.select {|a| a.data[:public] }.sort { |x,y| y.date <=> x.date }[0...10].each do |article|
-					/       li
-					/         =link_to article do
-					/           =emojify article.title
-					/           time.date= article.date.strftime('%Y/%m/%d')
-					/     li.show-all
-					/       = link_to '/archives' do
-					/         = t(:show_all)
-
-						
-					/ h3= t :monthly
-					/ ul.tags
-					/   - blog.articles.select {|a| a.data[:public] }.group_by {|a| a.date.year }.each do |year, year_articles|
-					/     - year_articles.group_by {|a| a.date.month }.each do |month, month_articles|
-					/       li
-					/         = link_to blog_month_path(year, month) do
-					/           = Date.new(year, month, 1).strftime(t 'calendar_title.format.month')
-					/           i= month_articles.size
-
-					/.tags.box
-						/h3= t :tags
-						/ul.tags
-							/ - blog.tags.sort.each do |tag, articles|
-								/ li
-									/ =link_to tag_path(tag) do
-										/ =tag
-										/ i=articles.size
-
-
-				/ section#sidebar-tags
-				/   header
-				/     h2= t :tags
-				/     form#tag-filter-form.form-inline role="form"
-				/       div.form-group.has-feedback
-				/         input.form-control#tag-filter-input type="search" placeholder=t(:filter_tags)
-				/         span.glyphicon.glyphicon-search.form-control-feedback
-				/   ol.nav.collapse.in#sidebar-tags-list
-				/     - blog.tags.sort.each do |tag, articles|
-				/       li.hidden
-				/         = link_to tag_path(tag) do
-				/           span.glyphicon.glyphicon-tag
-				/           | &nbsp;
-				/           = tag
-				/           span.badge.pull-right= articles.size
-				/     li.show-all
-				/       = link_to '#tag-filter-form', class: 'show-all-tags-link' do
-				/         span.glyphicon.glyphicon-plus
-				/         | &nbsp;
-				/         = t(:show_all)
-
-					/ h2= t :navigation
-					/ ol.nav itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement"
-					/   li
-					/     = link_to '/', itemprop: 'url' do
-					/       span itemprop='name'
-					/         = t :home
-					/   li
-					/     = link_to '/about', rel: 'author', itemprop: 'url' do
-					/       span itemprop='name'
-					/         = t :aboutme
-					/   li
-					/     - if I18n.locale.to_s == 'fr'
-					/       = link_to 'http://mariusnedelcu.com/', rel: 'alternate', itemprop: 'url', hreflang: 'en' do
-					/         span itemprop='name' Blog (English)
-					/     - else
-					/       = link_to 'http://fr.mariusnedelcu.com/', rel: 'alternate', itemprop: 'url', hreflang: 'fr' do
-					/         span itemprop='name' Français
-
-				/ section#sidebar-search
-				/   form#site-search-form.form-inline {
-				/     role="form"
-				/     method="get"
-				/     action="/search/"
-				/     itemprop="potentialAction"
-				/     itemscope="itemscope"
-				/     itemtype="http://schema.org/SearchAction"
-				/   }
-				/     div.form-group.has-feedback
-				/       input.form-control#site-search-input {
-				/         type="search" placeholder=t(:search_site)
-				/         name="q" accesskey="s" required="required"
-				/       }
-				/       span.glyphicon.glyphicon-search.form-control-feedback
-				/       meta itemprop="target" content="#{config.site_url}/search/?q={q}"
-
-				/ section#sidebar-bootswatch style="display:none"
-				/   h2 Theme
-				/   .btn-group
-				/     button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
-				/       span.bootswatch-theme-name
-				/       | &nbsp;
-				/       span.caret
-				/     ul.dropdown-menu.bootswatch-theme-list role="menu"
-				/       li style="padding: 1em 0; text-align: center"
-				/         i.fa.fa-refresh.fa-spin
