@@ -39,8 +39,8 @@ html lang=I18n.locale.to_s itemscope="itemscope" itemtype="http://schema.org/Web
             li= current_page.url == "/" ? link_to('Program', '#program') : link_to('Program', '/#program')
             li= current_page.url == "/" ? link_to('Team', '#team') : link_to('Team', '/#team')
             li= current_page.url == "/" ? link_to('Portfolio', '#success') : link_to('Portfolio', '/#success')
-            li= link_to 'Faq', '/faq'
-            li= link_to 'How To', '/how-to-apply-successfully'
+            li= link_to 'Faq', 'http://apply.numa.co/faq/'
+            li= link_to 'How To', "http://apply.numa.co/how-to-apply-successfully/"
           / -else
     .container
       main == yield
