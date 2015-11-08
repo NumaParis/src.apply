@@ -35,8 +35,7 @@ set :markdown,
   :highlight => true,
   :footnotes => true,
   :quote => true,
-  :superscript => true,
-  :with_toc_data => true
+  :superscript => true
 
 set :build_dir,    "build-#{lang}"
 set :partials_dir, 'partials'

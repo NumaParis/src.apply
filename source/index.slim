@@ -1,23 +1,23 @@
 ---
 ogp:
   og:
-    description: 'This is my fixture Middleman site.'
+    description: 'The applications season for startup acceleration is open. Feel free to Apply'
     image:
-      '': http://mydomain.tld/path/to/fbimage.png
-      secure_url: https://secure.mydomain.tld/path/to/fbimage.png
+      '': http://apply.numa.paris.co/images/team_sprint.jpg
+      secure_url: http://apply.numa.paris.co/images/team_sprint.jpg
       type: image/png
       width: 400
       height: 300
     locale:
       '': en_us
       alternate:
-        - ja_jp
-        - zh_tw
+        - fr_FR
+        - en_EN
   fb:
-    description: 'This is my fixture Middleman site.'
+    description: 'This is the moment to apply. Take the step to becoming real. Apply for startup acceleration at NUMA Paris'
     image:
-      '': http://mydomain.tld/path/to/fbimage.png
-      secure_url: https://secure.mydomain.tld/path/to/fbimage.png
+      '': http://apply.numa.paris.co/images/team_sprint.jpg
+      secure_url: http://apply.numa.paris.co/images/team_sprint.jpg
       type: image/png
       width: 400
       height: 300
@@ -218,7 +218,7 @@ ogp:
 
 		section#partners
 			h2 =data.numa['partners'].find { |p| p.title == 'heading'}.content
-			ul#partners
+			ul.partners
 				li=image_tag 'logo_orange.png', :alt=> 'orange'
 				li=image_tag 'logo_atelier.png', :alt=> 'atelier'
 				li=image_tag 'logo_google.png', :alt=> 'google'
