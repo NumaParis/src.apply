@@ -19,7 +19,7 @@ activate :directory_indexes
 activate :syntax
 activate :i18n, langs: [lang]
 activate :livereload
-activate :minify_css
+# activate :minify_css
 
 set :markdown_engine, :custom
 set :markdown_engine_prefix, ::Middleman::Renderers
@@ -35,7 +35,8 @@ set :markdown,
   :highlight => true,
   :footnotes => true,
   :quote => true,
-  :superscript => true
+  :superscript => true,
+  :with_toc_data => true
 
 set :build_dir,    "build-#{lang}"
 set :partials_dir, 'partials'
