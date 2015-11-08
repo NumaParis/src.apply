@@ -118,8 +118,10 @@ ogp:
 					li.col-xs-6.col-sm-4.col-md-3.col-lg-2
 						.avatar
 							= image_tag "#{row['photo']}", :alt=> "#{row['name']}"
-							= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
-							= link_to 'a', "http://twitter.com/#{row['twitter']}", :target=> '_blank', :class=> 'twitter'
+							- if row['linkedin'] != nil
+								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+							- if row['twitter'] != nil
+								= link_to 'a', "http://twitter.com/#{row['twitter']}", :target=> '_blank', :class=> 'twitter'
 						strong
 							= row['name']
 							em
@@ -135,8 +137,10 @@ ogp:
 					li.col-xs-6.col-sm-4.col-md-3.col-lg-2
 						.avatar
 							= image_tag "#{row['photo']}", :alt=> "#{row['name']}"
-							= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
-							= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
+							- if row['linkedin'] != nil
+								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+							- if row['twitter'] != nil
+								= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
 						strong.name
 							= row['name']
 							em
