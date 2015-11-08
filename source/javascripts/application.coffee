@@ -29,7 +29,6 @@ $ ->
 # ---
 
 $ ->
-  
   $('.navbar-collapse ul li a').click ->
     $('.navbar-toggle:visible').click()
     return
@@ -37,6 +36,7 @@ $ ->
   $('.step li:last-child').click ->
     $(this).toggleClass('more-info')
   return
+  
 return
 
 # $('body').scrollspy target: '#has-scrollspy'

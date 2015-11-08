@@ -446,10 +446,20 @@ ul.keypoints
 		// text-shadow: 1px 0px 0px fade-out($blue, 0.8)
 
 		strong
+			// &:before
+			// 	content: '⁓'//'•' 
+			// 	position: absolute
+			// 	+size(10px, 10px)
+			// 	bottom: 10px
+			// 	left: 48%
+			// 	color: white
 			b
 				font-family: 'UniversLTStd-Black'
+			position: relative
 			display: block
-			padding-bottom: 10px
+			padding-bottom: $grid-gutter-width/2
+			// margin-bottom: $grid-gutter-width/4
+			// border-bottom: 1px dotted orange
 		&:nth-child(1)
 			&:before
 				+background-image('plant.svg')
