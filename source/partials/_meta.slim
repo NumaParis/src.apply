@@ -14,6 +14,6 @@ meta itemprop="url" content=config.site_url
   meta content=emojify(t('blog.description'), :raw) name="description"
 - if current_page.data.keywords
   meta content=emojify(current_page.data.page.keywords, :raw) name="keywords"
-- elsif current_resource.data.alternate
-  meta content=alt_lang property="og:locale:alternate"
+/ - elsif current_resource.data.alternate
+/   meta content=alt_lang property="og:locale:alternate"
 meta content=t('author.name') name="author"
