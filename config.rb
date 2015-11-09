@@ -135,7 +135,7 @@ configure :build do
     # ignore '/about/index.fr.html'
     # ignore '/fr/*'
     activate :google_analytics do |ga|
-      ga.tracking_id = 'UA-68991286-1'
+      ga.tracking_id = 'UA-69424138-4'
     end
   else
     # ignore '/about/index.en.html'
