@@ -231,8 +231,9 @@ ul.nav
 		font-family: 'UniversLTStd-Bold'
 	h1
 		padding-top: $grid-gutter-width
-		padding-left: 0
-		padding-right: 0
+		@media screen and (min-width: 330px)
+			padding-left: 0
+			padding-right: 0
 		margin-bottom: 10px
 		font-size: 1.7em
 		line-height: 1em
@@ -314,8 +315,9 @@ ul.nav
 				padding-right: 2em
 	
 	
-	@media screen and (max-width: $screen-xs)
+	@media screen and (max-width: 330px)
 		padding: $box-pad 5px
+	
 	padding: $box-pad
 	background: fade-in($orange, .3)
 	@media screen and (min-width: $screen-md)
