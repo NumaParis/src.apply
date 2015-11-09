@@ -208,7 +208,7 @@ ul.nav
 	padding-top: 58%
 	+background-image('team_sprint.jpg')
 	@media screen and (min-width: $screen-sm)
-		background-color: fade-out($orange, 0.7)
+		background-color: fade-out($orange, 0.66)
 	background-color: fade-out($orange, 0.6)
 	background-blend-mode: multiply
 	background-size: cover
@@ -231,20 +231,28 @@ ul.nav
 		font-family: 'UniversLTStd-Bold'
 	h1
 		padding-top: $grid-gutter-width
-		padding-left: $grid-gutter-width/4
-		padding-right: $grid-gutter-width/4
-		font-weight: normal
+		padding-left: 0
+		padding-right: 0
 		margin-bottom: 10px
+		font-size: 1.7em
 		line-height: 1em
 		text-shadow: 1px 1px 14px fade-out(#000, .2)
+		margin-bottom: 0
 	p
-		font-size: 1em
+		font-size: 0.8em
+		margin-bottom: 0
+	span
+		height: auto
 	
 	@media screen and (min-width: $screen-xs)
 		h1
 			font-size: 2.2em
+			padding-left: $grid-gutter-width/4
+			padding-right: $grid-gutter-width/4
+			margin-bottom: $box-pad/2
 		p
 			font-size: 1.1em
+			margin-bottom: $box-pad/2
 	
 	@media screen and (min-width: $screen-sm)
 		h1
@@ -305,6 +313,9 @@ ul.nav
 				padding-left: 2em
 				padding-right: 2em
 	
+	
+	@media screen and (max-width: $screen-xs)
+		padding: $box-pad 5px
 	padding: $box-pad
 	background: fade-in($orange, .3)
 	@media screen and (min-width: $screen-md)
@@ -364,6 +375,9 @@ ul.metrics
 ul.wanted
 	li
 		text-align: center
+		@media screen and (max-width: 330px)
+			strong
+				font-size: $font-size-small
 		@media screen and (max-width: $screen-sm)
 			strong
 				min-height: 60px
