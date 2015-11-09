@@ -34,36 +34,35 @@ ogp:
 	.content
 		section#accelerator
 			.col-sm-12.col-md-7.col-lg-8
-				h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
-				p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
+				header
+					h2 =data.numa['accelerator'].find{ |p| p.name == 'heading' }.content
+					p =data.numa['accelerator'].find{ |p| p.name == 'paragraph' }.content
 			
 			#agenda.col-sm-12.col-md-5.col-lg-4
 				ul.agenda
 					li Agenda
 					-data.numa['intro'].each do |row|
-						li
-							= row['agenda']
-					li
-						=link_to 'Apply Now', "https://www.f6s.com/numaparis", :class => 'btn btn-lg btn-apply', :target=> '_blank'
+						li = row['agenda']
+					li =link_to 'Apply Now', "https://www.f6s.com/numaparis", :class => 'btn btn-lg btn-apply', :target=> '_blank'
 			
 			ul.metrics.clearfix
 				-data.numa['accelerator'].each do |row|
-					li.col-xs-6.col-sm-3
-						= row['trackrecord']
+					li.col-xs-6.col-sm-3 = row['trackrecord']
 		
 		section#wanted
 			.col-sm-12
-				h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
-				p =data.numa['wanted'].find{ |p| p.name == 'paragraph' }.content
+				header
+					h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
+					p =data.numa['wanted'].find{ |p| p.name == 'paragraph' }.content
 			ul.wanted
 				-data.numa['wanted'].each do |row|
-					li.col-xs-6.col-sm-3
-						=row['criteria']? row['criteria'] : ""
+					li.col-xs-6.col-sm-3 =row['criteria']? row['criteria'] : ""
 
 		section#program
 			.col-sm-8
-				h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
-				p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
+				header
+					h2 =data.numa['program'].find{ |p| p.name == 'heading' }.content
+					p =data.numa['program'].find{ |p| p.name == 'paragraph' }.content
 			
 			.this.clearfix
 				ul
@@ -110,8 +109,9 @@ ogp:
 
 		section#team
 			.col-sm-12
-				h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
-				p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
+				header
+					h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
+					p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
 			
 			ul.people
 				-data.numa['team'].each do |row|
@@ -129,8 +129,9 @@ ogp:
 		
 		section#mentors
 			.col-sm-12
-				h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
-				p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
+				header
+					h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
+					p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
 			
 			ul.people
 				-data.numa['mentors'].each do |row|
@@ -148,11 +149,12 @@ ogp:
 		
 		section#global.clearfix
 			.col-sm-12
-				h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
-				p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
+				header
+					h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
+					p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
 
 			.le-mapcontainer
-				.col-sm-4.col-md-3.col-lg-3
+				.col-sm-12.col-md-3.col-lg-3
 					ul.inc
 						li.new_york Techstars (new york)
 						li.Montreal FunderFuel (Montreal)
@@ -166,7 +168,7 @@ ogp:
 						li.Dubai Astro Labs (Dubai)
 						li.Sydney Fish Burners (Sydney)
 						li.Tel_Aviv The Hive (Tel Aviv)
-						li.Nairobi &#42;Hub_ (Nairobi)
+						li.Nairobi Hub_ (Nairobi)
 						li.Johhannesburg Jozi Hub (Johhannesburg)
 						li.Kampala Outbox (Kampala)
 						li.Lagos Co-Creation Hub (Lagos)
@@ -175,7 +177,7 @@ ogp:
 						li.Palo_Alto Blackbox (Palo Alto)
 						li.Durham Underground (Durham)
 						li.Chicago 1971 (Chicago)
-				.col-sm-8.col-md-9.col-lg-9
+				.col-sm-12.col-md-9.col-lg-9
 					#map
 						.point.new_york
 						.point.Montreal
@@ -201,8 +203,9 @@ ogp:
 		
 		section#success
 			.col-sm-12
-				h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
-				/p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
+				header
+					h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
+					/p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
 			ul.stories.clearfix
 				-data.numa['stories'].each do |row|
 					li.col-md-4
@@ -217,7 +220,7 @@ ogp:
 								= row['story']
 
 		section#partners
-			h2 =data.numa['partners'].find { |p| p.title == 'heading'}.content
+			h3 =data.numa['partners'].find { |p| p.title == 'heading'}.content
 			ul.partners
 				li=image_tag 'logo_orange.png', :alt=> 'orange'
 				li=image_tag 'logo_atelier.png', :alt=> 'atelier'

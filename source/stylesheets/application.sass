@@ -104,7 +104,9 @@ h4
 .content
 	> section
 		+clearfix
-		padding: $box-pad * 2 0
+		padding: $grid-gutter-width 0
+	header
+		margin-bottom: $grid-gutter-width
 
 // Header --------------------------------------
 .logo
@@ -148,12 +150,13 @@ nav.navbar
 ul.nav
 	float: left
 	li
-		+transition(200ms)
-		border-bottom: 5px solid transparent
-		&.active
-			border-bottom: 5px solid white
-			a
-				color: $blue
+		@media screen and (min-width: $screen-sm)
+			border-bottom: 5px solid transparent	
+			+transition(200ms)
+			&.active
+				border-bottom: 5px solid white
+		&.active a
+			color: $blue
 			// background: white
 		a
 			&:hover,
@@ -164,11 +167,11 @@ ul.nav
 			@media screen and (min-width: $screen-md)
 				padding-left: 10px
 				padding-right: 10px 
-			padding-left: 8px
-			padding-right: 8px 
+			padding-left: 7px
+			padding-right: 7px 
 			font-size: 15px
 			font-family: 'UniversLTStd-Bold'
-navbar-collapse collapse in
+
 .navbar-toggle
 	background: #e6e6e6
 	.icon-bar
@@ -204,9 +207,9 @@ navbar-collapse collapse in
 		margin-left: -$grid-gutter-width/2
 	padding-top: 58%
 	+background-image('team_sprint.jpg')
-	background-color: fade-out($orange, 0.6)
 	@media screen and (min-width: $screen-sm)
 		background-color: fade-out($orange, 0.7)
+	background-color: fade-out($orange, 0.6)
 	background-blend-mode: multiply
 	background-size: cover
 	position: relative
@@ -245,13 +248,13 @@ navbar-collapse collapse in
 	
 	@media screen and (min-width: $screen-sm)
 		h1
-			font-size: 3.5em
+			font-size: 3.3em
 		p
 			font-size: 1.5em
 
 	@media screen and (min-width: $screen-md)
 		h1
-			font-size: 3.5em
+			font-size: 4.8em
 		p
 			font-size: 1.5em
 	
@@ -491,17 +494,27 @@ ul.keypoints
 			+gradient-directional($orange, $blue, -30deg)
 			padding-right: $grid-gutter-width
 
-.partners
-	text-align: center
-	img
-		filter: gray //IE6-9
-		filter: grayscale(1)  //Firefox 35+
-		-webkit-filter: grayscale(1) // Google Chrome, Safari 6+ & Opera 15+
-		&:hover
-			filter: none
-			-webkit-filter: grayscale(0)
-		+transition(250ms)
+=desaturate
+	filter: gray //IE6-9
+	filter: grayscale(1)  //Firefox 35+
+	-webkit-filter: grayscale(1) // Google Chrome, Safari 6+ & Opera 15+
+=saturate
+	filter: none
+	-webkit-filter: grayscale(0)
 
+.partners,
+.perks
+	li
+		&:hover img
+			+saturate
+	img
+		+transition(250ms)
+		+desaturate
+
+#partners
+	text-align: center
+
+.partners
 	li
 		padding: $grid-gutter-width/2
 		&:nth-child(1)
@@ -518,21 +531,12 @@ ul.keypoints
 		display: inline-block
 		img
 			display: block
-			max-width: 130px	
-
+			max-width: 130px
+		
 .perks
 	text-align: center
-	margin-bottom: $grid-gutter-width
-	
+	margin-bottom: $grid-gutter-width * 2
 	li
-		filter: gray //IE6-9
-		filter: grayscale(1)  //Firefox 35+
-		-webkit-filter: grayscale(1) // Google Chrome, Safari 6+ & Opera 15+
-		&:hover
-			filter: none
-			-webkit-filter: grayscale(0)
-		+transition(250ms)
-
 		display: inline-block
 		padding: $grid-gutter-width/4 $grid-gutter-width/2
 		img
@@ -542,7 +546,8 @@ ul.keypoints
 ul.step
 	&, h3, em
 		display: block
-	border-top: 2px solid $orange
+	margin-top: $grid-gutter-width/2
+	// border-top: 2px solid $orange
 	margin-bottom: $grid-gutter-width
 	h3
 		padding-top: 30px
@@ -552,7 +557,7 @@ ul.step
 			font-style: normal
 			font-size: 17px
 	li
-		border-bottom: 1px dotted $orange
+		border-bottom: 1px dotted black
 		padding: $box-pad/2 0 
 		&:last-child
 			font-style: italic
@@ -574,12 +579,23 @@ ul.step
 
 .one, .two, .three
 	position: relative
+	&:after
+		content: ''
+		height: 23px
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		color: white
+		padding-left: 70px
+		z-index: 0
 	&:before
+		z-index: 1
 		display: block
 		position: absolute
 		top: -20px
 		left: 20px
-		background: $orange
+		background: black
 		+square(36px)
 		border-radius: 100%
 		text-align: center
@@ -587,14 +603,23 @@ ul.step
 		font-family: 'UniversLTStd-Bold'
 
 .one
+	&:after
+		+gradient-horizontal($orange, $blue)
+		content: 'week one'
 	&:before
 		padding-top: 9px
 		content: '1'
 .two
+	&:after
+		content: 'week two'
+		+gradient-horizontal($blue, #ff0000)
 	&:before
 		padding-top: 9px
 		content: '2'
 .three
+	&:after
+		content: 'week 14'
+		+gradient-horizontal(red, black)
 	&:before
 		padding-top: 9px
 		content: '3'
@@ -667,10 +692,28 @@ blockquote
 	> *
 		display: block
 	li
+		&:hover
+			.photo
+				&:before
+					background-color: fade-out($blue, 0.9)
+				img
+					+saturate
 		margin-bottom: $grid-gutter-width
 		max-width: 400px
 		+center-block
 	.photo
+		&:before
+			+transition(200ms)
+			content: ''
+			+stretch
+			background-color: fade-out($orange, 0.7)
+			background-blend-mode: multiply
+			z-index: 1000
+		position: relative
+		img
+			+transition(200ms)
+			z-index: 1
+			+desaturate
 		display: block
 		clear: both
 		margin-bottom: $grid-gutter-width/2
@@ -699,16 +742,22 @@ blockquote
 
 // #international
 .inc
+	@media screen and (max-width: $screen-md)
+		li
+			&:before
+				content: '• '
+			display: inline-block
+			padding: 3px 10px 1px
+			margin: 3px 2px 0 0
+		text-align: center
+		margin-bottom: $grid-gutter-width/2
 	li
-		&.on
-			color: $blue
 		&:hover
 			text-decoration: underline
 		+transition(200ms)
 		cursor: pointer
 		font-family: 'UniversLTStd-Bold'
 		line-height: 1.5em
-
 
 .le-mapcontainer
 	#map
@@ -794,8 +843,7 @@ blockquote
 			z-index: 1
 			opacity: 0
 
-div.le-mapcontainer,
-div.le-mapcontainer:hover
+div.le-mapcontainer
 	&.new_york
 		.inc li.new_york
 			color: blue
@@ -1049,6 +1097,7 @@ ul.social // social links in the bootom footer
 footer
 	clear: both
 	padding: $grid-gutter-width/2 0
+	border-top: 1px solid #000
 
 .col-sm-12.centerthis
 	padding: $grid-gutter-width/2 0
