@@ -23,9 +23,9 @@
 
 ### a buch of useful commands to operate middleman 
 
-`bundle exec middleman` - runs the script
-`bundle exec middleman build` - builds the site
-`bundle exec middleman deploy` - sends the site online
+- `bundle exec middleman` - runs the script
+- `bundle exec middleman build` - builds the site
+- `bundle exec middleman deploy` - sends the site online
 
 License
 -------
