@@ -1,14 +1,14 @@
-#This website is awesome!
+This website is awesome!
 
 ##Notes & To Do:
 -----
 
-✔ install analytics
-✔ optimize images
-✔ optimize navigation on mobile devices
-✔ make the partnerer accelerator map more fun
+- ✔ install analytics
+- ✔ optimize images
+- ✔ optimize navigation on mobile devices
+- ✔ make the partnerer accelerator map more fun
 - extensive testing on other browsers (test in ie maybe)
-✔ Install GA
+- ✔ Install GA
 - set up continuous development in CircleCi
 - add a version in french (if it's needed)
 - Make the footer nicer
