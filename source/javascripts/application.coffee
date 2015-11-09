@@ -29,6 +29,15 @@ $ ->
 # ---
 
 $ ->
+  $('ul.inc li').click ->
+      acc = $(this).attr('class')
+      if $('.point').hasClass(acc)
+        $('.le-mapcontainer').toggleClass(acc)
+      else
+        alert('wowi')
+    return
+  return
+$ ->
   $('.navbar-collapse ul li a').click ->
     $('.navbar-toggle:visible').click()
     return

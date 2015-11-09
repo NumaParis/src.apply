@@ -698,8 +698,21 @@ blockquote
 //International ----------------------------------
 
 // #international
+.inc
+	li
+		&.on
+			color: $blue
+		&:hover
+			text-decoration: underline
+		+transition(200ms)
+		cursor: pointer
+		font-family: 'UniversLTStd-Bold'
+		line-height: 1.5em
+
 
 .le-mapcontainer
+	#map
+		opacity: .9
 	padding-top: $grid-gutter-width
 	clear: both
 
@@ -712,11 +725,254 @@ blockquote
 	overflow: hidden
 	position: relative
 
+@-moz-keyframes pulse
+	0%
+		-moz-transform: scale(0)
+		opacity: 0.0
+	25%
+		-moz-transform: scale(0)
+		opacity: 0.1
+	50%
+		-moz-transform: scale(0.1)
+		opacity: 0.3
+	75%
+		-moz-transform: scale(0.5)
+		opacity: 0.5
+	100%
+		-moz-transform: scale(1)
+		opacity: 0.0	
+@-webkit-keyframes "pulse"
+	0%
+		-webkit-transform: scale(0)
+		opacity: 0.0
+	25%
+		-webkit-transform: scale(0)
+		opacity: 0.1
+	50%
+		-webkit-transform: scale(0.1)
+		opacity: 0.3
+	75%
+		-webkit-transform: scale(0.5)
+		opacity: 0.5
+	100%
+		-webkit-transform: scale(1)
+		opacity: 0.0
+
+=animation($name, $time, $type)
+	-webkit-animation: $name $time $type //ease-out
+	-moz-animation: $name $time $type //ease-out
+	animation: $name $time $type //ease-out
+
+=animation-iteration-count($times: infinite)
+	-webkit-animation-iteration-count: $times
+	-moz-animation-iteration-count: $times
+	animation-iteration-count: $times
+
+.le-mapcontainer:hover
+	#map
+		opacity: 1
+	.point
+		&:before
+			content: ''
+			display: block
+			+square(10px)
+			border-radius: 30px
+			z-index: 10
+			position: absolute
+		&:after
+			content: ''
+			display: block
+			border: 10px solid $orange
+			background: transparent
+			border-radius: 60px
+			+square(50px)
+			+animation(pulse, 2s, ease-out)
+			+animation-iteration-count()
+			position: absolute
+			top: -20px
+			left: -20px
+			z-index: 1
+			opacity: 0
+
+div.le-mapcontainer,
+div.le-mapcontainer:hover
+	&.new_york
+		.inc li.new_york
+			color: blue
+		.point.new_york	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid $blue
+	&.Montreal
+		.inc li.Montreal
+			color: blue
+		.point.Montreal	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.london
+		.inc li.london
+			color: blue
+		.point.london	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Lisbon
+		.inc li.Lisbon
+			color: blue
+		.point.Lisbon	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Mardid
+		.inc li.Mardid
+			color: blue
+		.point.Mardid	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Berlin
+		.inc li.Berlin
+			color: blue
+		.point.Berlin	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Munich
+		.inc li.Munich
+			color: blue
+		.point.Munich	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Warshow
+		.inc li.Warshow
+			color: blue
+		.point.Warshow	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Karachi
+		.inc li.Karachi
+			color: blue
+		.point.Karachi	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Dubai
+		.inc li.Dubai
+			color: blue
+		.point.Dubai	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Sydney
+		.inc li.Sydney
+			color: blue
+		.point.Sydney	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Tel_Aviv
+		.inc li.Tel_Aviv
+			color: blue
+		.point.Tel_Aviv	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Nairobi
+		.inc li.Nairobi
+			color: blue
+		.point.Nairobi	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Johhannesburg
+		.inc li.Johhannesburg
+			color: blue
+		.point.Johhannesburg	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Kampala
+		.inc li.Kampala
+			color: blue
+		.point.Kampala	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Lagos
+		.inc li.Lagos
+			color: blue
+		.point.Lagos	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Accra
+		.inc li.Accra
+			color: blue
+		.point.Accra	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Venice
+		.inc li.Venice
+			color: blue
+		.point.Venice	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Palo_Alto
+		.inc li.Palo_Alto
+			color: blue
+		.point.Palo_Alto	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Durham
+		.inc li.Durham
+			color: blue
+		.point.Durham	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+	&.Chicago
+		.inc li.Chicago
+			color: blue
+		.point.Chicago	
+			background-color: $blue
+			+box-shadow(0px 0px 7px $blue)
+			&:after
+				border: 10px solid blue
+
 .point
+	position: relative
+	background-color: $orange
+	+box-shadow(0px 0px 7px $orange)
 	position: absolute
-	background: $blue
+	// background: $blue
 	position: absolute
-	+square(12px)
+	+square(10px)
 	border-radius: 50%
 	&.new_york
 		+position(39,27.9)
