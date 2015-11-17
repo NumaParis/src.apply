@@ -28,8 +28,6 @@ ogp:
 				.heading
 					h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
 					p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
-					span 
-						| <a class="btn play-vid venobox" href="https://youtu.be/O6qXMYQb1_I?rel=0&autoplay=1" data-type="youtube" data-overlay="rgba(0, 0, 0, 0.98)"></a>
 
 	.content
 		section#accelerator
@@ -49,6 +47,9 @@ ogp:
 				-data.numa['accelerator'].each do |row|
 					li.col-xs-6.col-sm-3 = row['trackrecord']
 		
+		section#video
+			.le-tv
+				| <a class="inside venobox" href="https://youtu.be/O6qXMYQb1_I?rel=0&autoplay=1" data-type="youtube" data-overlay="rgba(0, 0, 0, 0.98)"><b class="btn play-vid"></b></a>
 		section#wanted
 			.col-sm-12
 				header

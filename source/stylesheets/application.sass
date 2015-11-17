@@ -271,6 +271,7 @@ ul.nav
 	&:focus, &:active
 		box-shadow: none
 	&.play-vid
+		opacity: 0
 		position: relative
 		vertical-align: middle
 		+background-image('icon_play.svg')
@@ -278,7 +279,33 @@ ul.nav
 		+center-block
 		+square(35px)
 		@media screen and (min-width: $screen-sm)
-			+square(75px)
+			+square(60px)
+
+section#video
+	+transition(250ms)
+	.le-tv
+		overflow: hidden
+		position: relative
+		max-width: 300px
+		padding-top: 35%
+		height: 0
+		+center-block
+		+background-image('tv.svg')
+		background-repeat: no-repeat
+		background-size: 100% auto
+		.inside
+			&:hover .play-vid
+				opacity: 1
+			+background-image('cat.gif')
+			background-size: 100% auto
+			padding-top: 20%
+			top: 15%
+			left: 2.5%
+			right: 2.5%
+			bottom: 31%
+			position: absolute
+			// opacity: .2
+			border-radius: 10px
 
 //Accelerator ----------------------------------
 .agenda
