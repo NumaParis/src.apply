@@ -1,5 +1,6 @@
 # If you have OpenSSL installed, we recommend updating
 # the following line to use 'https'
+# this pack uses ruby-2.1.5 so run $rvm use ruby-2.1.5 before anything
 source 'http://rubygems.org'
 
 gem 'dotenv'
