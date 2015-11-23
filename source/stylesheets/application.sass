@@ -30,6 +30,14 @@ img
 	&.gemoji
 		display: inline-block
 
+=desaturate
+	filter: gray //IE6-9
+	filter: grayscale(1)  //Firefox 35+
+	-webkit-filter: grayscale(1) // Google Chrome, Safari 6+ & Opera 15+
+=saturate
+	filter: none
+	-webkit-filter: grayscale(0)
+
 figure
 	&.wide
 		img
@@ -240,7 +248,7 @@ ul.nav
 		text-shadow: 1px 1px 14px fade-out(#000, .2)
 		margin-bottom: 0
 	p
-		font-size: 0.8em
+		font-size: 1.1em
 		margin-bottom: 0
 	span
 		height: auto
@@ -252,20 +260,20 @@ ul.nav
 			padding-right: $grid-gutter-width/4
 			margin-bottom: $box-pad/2
 		p
-			font-size: 1.1em
+			font-size: 1.2em
 			margin-bottom: $box-pad/2
 	
 	@media screen and (min-width: $screen-sm)
 		h1
 			font-size: 3.3em
 		p
-			font-size: 1.5em
+			font-size: 1.7em
 
 	@media screen and (min-width: $screen-md)
 		h1
 			font-size: 4.8em
 		p
-			font-size: 1.5em
+			font-size: 1.8em
 	
 .btn
 	&:focus, &:active
@@ -302,6 +310,42 @@ section#video
 			bottom: 31%
 			position: absolute
 			border-radius: 10px
+
+.vidholder
+	background: black
+	+center-block
+	+sze(100%, 60%)
+	@media screen and (min-width: $screen-sm)
+		+sze(600px, 375px)
+	height: 0
+	overflow: hidden
+	position: relative
+	> div
+		+stretch
+	.vidthumb
+		z-index: 10000
+		cursor: pointer
+		&:hover
+			img.playbtn
+				+saturate
+
+	img.playbtn
+		+center-block
+		width: 13%
+		+transition(250ms)
+		+desaturate
+		opacity: .95
+	
+	img.thumb
+		margin-top: 8.6%
+		width: 100%
+
+.le-play
+	z-index: 99
+	position: absolute
+	top: 40%
+	left: 0
+	right: 0
 
 //Accelerator ----------------------------------
 .agenda
@@ -532,14 +576,6 @@ ul.keypoints
 				background-repeat: no-repeat
 			+gradient-directional($orange, $blue, -30deg)
 			padding-right: $grid-gutter-width
-
-=desaturate
-	filter: gray //IE6-9
-	filter: grayscale(1)  //Firefox 35+
-	-webkit-filter: grayscale(1) // Google Chrome, Safari 6+ & Opera 15+
-=saturate
-	filter: none
-	-webkit-filter: grayscale(0)
 
 .partners,
 .perks
@@ -1117,6 +1153,8 @@ div.le-mapcontainer
 
 .toppad
 	padding-top: 70px
+	h2,h3,h4
+		color: $blue
 	h3, h4
 		margin-top: $grid-gutter-width
 	h4

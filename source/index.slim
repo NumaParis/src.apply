@@ -46,10 +46,16 @@ ogp:
 			ul.metrics.clearfix
 				-data.numa['accelerator'].each do |row|
 					li.col-xs-6.col-sm-3 = row['trackrecord']
-		
-		section#video
-			.le-tv
-				| <a class="inside venobox" href="https://youtu.be/O6qXMYQb1_I?rel=0&autoplay=1" data-type="youtube" data-overlay="rgba(0, 0, 0, 0.98)"><b class="btn play-vid"></b></a>
+
+		section
+			javascript:
+				var embedCode = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/O6qXMYQb1_I?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'
+			.vidholder
+				.vidthumb onclick="document.getElementById('videocontainer').innerHTML = embedCode; this.style.display='none'"
+					=image_tag 'screenshot.jpg', :class=>'thumb'
+					div.le-play=image_tag 'play.png', :class=>'playbtn'
+				#videocontainer
+
 		section#wanted
 			.col-sm-12
 				header

@@ -134,6 +134,11 @@ $prefixes: ("-moz-", "-webkit-", "-ms-", "");
   // }
 }
 
+@mixin sze($w:0, $h:0) {
+  width: $w;
+  padding-top: $h;
+}
+
 @mixin stretch($a:0,$b:0,$c:0,$d:0) {
   position: absolute;
   top:$a;
