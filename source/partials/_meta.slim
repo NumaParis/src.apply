@@ -10,6 +10,7 @@ meta itemprop="url" content=config.site_url
   meta content=emojify(current_page.data.description, :raw) name="description"
 - elsif content_for?(:description)
   meta content=emojify(yield_content(:description), :raw) name="description"
+  meta name="google-site-verification" content="dAJk-TaA1wJVJjtBK6mHVBu51x0zTyPT7z7icXfZO-E"
 - else
   meta content=emojify(t('blog.description'), :raw) name="description"
 - if current_page.data.keywords
