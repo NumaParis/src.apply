@@ -228,6 +228,23 @@ ogp:
 						blockquote.story
 							p
 								= row['story']
+		
+		section#quotes
+			.col-sm-12
+				header
+					/ h2 =data.numa['quotes'].find{ |p| p.name == 'name' }.content
+			ul.quotes.clearfix
+				-data.numa['quotes'].each do |row|
+					li.col-md-3
+						.photo
+							= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
+						em.quote
+							= row['content']
+						div.where
+							strong.name = row['name']
+							| &nbsp; quoted from 
+							- if row['where'] != nil
+								= link_to "#{row['where']}", "#{row['link']}", :class=> "#{row['where']}"
 
 		section#partners
 			h3 =data.numa['partners'].find { |p| p.title == 'heading'}.content
