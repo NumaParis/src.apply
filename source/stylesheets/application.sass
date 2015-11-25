@@ -822,10 +822,10 @@ blockquote
 		.name, .role, .story
 			margin-left: $photo + $grid-gutter-width/2
 
-#quotes
-	padding-top: 0
 
 .quotes
+	h4
+		margin-bottom: $grid-gutter-width/4
 	li
 		@media screen and (max-width: $screen-sm)
 			margin-bottom: $grid-gutter-width
@@ -838,7 +838,19 @@ blockquote
 		text-size: $font-size-small
 		padding-top: $grid-gutter-width/2
 		a
+			&.Techcrunch
+				+background-image('tc.gif')
+				background-repeat: no-repeat
+				background-position: top left
+				background-size: auto auto
+			&.Rudebaguette
+				+background-image('rb.gif')
+				background-repeat: no-repeat
+				background-position: top left
+				background-size: auto auto
 			text-decoration: underline
+			padding: 6px 3px 3px 60px
+			display: block
 
 
 //International ----------------------------------

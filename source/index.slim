@@ -116,6 +116,40 @@ ogp:
 					- if row['three'] != nil
 						li
 							=row['three']
+		
+		section#success
+			.col-sm-12
+				header
+					h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
+					/p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
+			ul.stories.clearfix
+				-data.numa['stories'].each do |row|
+					li.col-md-4
+						.photo
+							= image_tag "#{row['picture']}", :alt=>"#{row['name']}"
+						h4.name
+							= row['name']
+						em.role
+							= row['role']
+						blockquote.story
+							p
+								= row['story']
+		
+		section#quotes
+			.col-sm-12
+				header
+					h2 =data.numa['quotes'].find{ |p| p.title == 'heading' }.content
+			ul.quotes.clearfix
+				-data.numa['quotes'].each do |row|
+					li.col-md-3
+						/ .photo
+							/= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
+						h4.name = row['name']
+						em.quote
+							= row['quote']
+						div.where
+							- if row['where'] != nil
+								= link_to "#{row['where']}", "#{row['link']}", :class=> "#{row['where']}", :target=> "_blank"
 
 		section#team
 			.col-sm-12
@@ -210,41 +244,6 @@ ogp:
 						.point.Palo_Alto
 						.point.Durham
 						.point.Chicago
-		
-		section#success
-			.col-sm-12
-				header
-					h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
-					/p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
-			ul.stories.clearfix
-				-data.numa['stories'].each do |row|
-					li.col-md-4
-						.photo
-							= image_tag "#{row['picture']}", :alt=>"#{row['name']}"
-						h4.name
-							= row['name']
-						em.role
-							= row['role']
-						blockquote.story
-							p
-								= row['story']
-		
-		section#quotes
-			.col-sm-12
-				header
-					/ h2 =data.numa['quotes'].find{ |p| p.name == 'name' }.content
-			ul.quotes.clearfix
-				-data.numa['quotes'].each do |row|
-					li.col-md-3
-						.photo
-							= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
-						em.quote
-							= row['content']
-						div.where
-							strong.name = row['name']
-							| &nbsp; quoted from 
-							- if row['where'] != nil
-								= link_to "#{row['where']}", "#{row['link']}", :class=> "#{row['where']}"
 
 		section#partners
 			h3 =data.numa['partners'].find { |p| p.title == 'heading'}.content
