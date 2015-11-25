@@ -76,28 +76,7 @@ ogp:
 					-data.numa['program'].each do |row|
 						- if row['keypoints'] != nil
 							li
-								=row['keypoints']
-			
-			.perks.clearfix 
-				h2.text-center Perks that rock !
-				ul
-					li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
-					li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
-					li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
-					li =image_tag 'images/aircall.png', :alt=> 'aircall'
-					li =image_tag 'images/algolia.png', :alt=> 'algolia'
-					li =image_tag 'images/amazon-web-services.png', :alt=> 'amazon-web-services'
-					li =image_tag 'images/evernote.jpg', :alt=> 'evernote'
-					li =image_tag 'images/mixpanel.png', :alt=> 'mixpanel'
-					li =image_tag 'images/invision.png', :alt=> 'invision'
-					li =image_tag 'images/bizpack.png', :alt=> 'bizpack'
-					li =image_tag 'images/twitter.png', :alt=> 'twitter'
-					li =image_tag 'images/intercom.png', :alt=> 'intercom'
-					li =image_tag 'images/dashlane.png', :alt=> 'dashlane'
-					li =image_tag 'images/azendo.png', :alt=> 'azendo'
-					li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
-					li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
-			
+								=row['keypoints']			
 			hr
 			.col-sm-12
 				h2 Program Timeline
@@ -117,6 +96,26 @@ ogp:
 						li
 							=row['three']
 		
+		section#mentors
+			.col-sm-12
+				header
+					h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
+					p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
+			
+			ul.people
+				-data.numa['mentors'].each do |row|
+					li.col-xs-6.col-sm-4.col-md-3.col-lg-2
+						.avatar
+							= image_tag "#{row['photo']}", :alt=> "#{row['name']}"
+							- if row['linkedin'] != nil
+								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+							- if row['twitter'] != nil
+								= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
+						strong.name
+							= row['name']
+							em
+								= row['role']
+
 		section#success
 			.col-sm-12
 				header
@@ -167,26 +166,6 @@ ogp:
 							- if row['twitter'] != nil
 								= link_to 'a', "http://twitter.com/#{row['twitter']}", :target=> '_blank', :class=> 'twitter'
 						strong
-							= row['name']
-							em
-								= row['role']
-		
-		section#mentors
-			.col-sm-12
-				header
-					h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
-					p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
-			
-			ul.people
-				-data.numa['mentors'].each do |row|
-					li.col-xs-6.col-sm-4.col-md-3.col-lg-2
-						.avatar
-							= image_tag "#{row['photo']}", :alt=> "#{row['name']}"
-							- if row['linkedin'] != nil
-								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
-							- if row['twitter'] != nil
-								= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
-						strong.name
 							= row['name']
 							em
 								= row['role']
@@ -244,6 +223,26 @@ ogp:
 						.point.Palo_Alto
 						.point.Durham
 						.point.Chicago
+		
+		.perks.clearfix 
+			h2.text-center Perks that rock !
+			ul
+				li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
+				li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
+				li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
+				li =image_tag 'images/aircall.png', :alt=> 'aircall'
+				li =image_tag 'images/algolia.png', :alt=> 'algolia'
+				li =image_tag 'images/amazon-web-services.png', :alt=> 'amazon-web-services'
+				li =image_tag 'images/evernote.jpg', :alt=> 'evernote'
+				li =image_tag 'images/mixpanel.png', :alt=> 'mixpanel'
+				li =image_tag 'images/invision.png', :alt=> 'invision'
+				li =image_tag 'images/bizpack.png', :alt=> 'bizpack'
+				li =image_tag 'images/twitter.png', :alt=> 'twitter'
+				li =image_tag 'images/intercom.png', :alt=> 'intercom'
+				li =image_tag 'images/dashlane.png', :alt=> 'dashlane'
+				li =image_tag 'images/azendo.png', :alt=> 'azendo'
+				li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
+				li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
 
 		section#partners
 			h3 =data.numa['partners'].find { |p| p.title == 'heading'}.content
