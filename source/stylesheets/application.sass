@@ -213,9 +213,13 @@ ul.nav
 	@media screen and (min-width: $screen-sm)
 		margin-right: -$grid-gutter-width/2
 		margin-left: -$grid-gutter-width/2
-	padding-top: 58%
+	
 	+background-image('team_sprint.jpg')
+	padding-top: 85%
+	@media screen and (min-width: $screen-xs)
+		padding-top: 66%
 	@media screen and (min-width: $screen-sm)
+		padding-top: 58%
 		background-color: fade-out($orange, 0.66)
 	background-color: fade-out($orange, 0.6)
 	background-blend-mode: multiply
@@ -254,7 +258,6 @@ ul.nav
 		margin-bottom: 0
 	p
 		font-size: 1.1em
-		margin-bottom: 0
 	span
 		height: auto
 	
@@ -263,10 +266,9 @@ ul.nav
 			font-size: 2.2em
 			padding-left: $grid-gutter-width/4
 			padding-right: $grid-gutter-width/4
-			margin-bottom: $box-pad/2
+			// margin-bottom: $box-pad/2
 		p
 			font-size: 1.2em
-			margin-bottom: $box-pad/2
 	
 	@media screen and (min-width: $screen-sm)
 		h1
@@ -280,9 +282,46 @@ ul.nav
 		p
 			font-size: 1.8em
 	
+	a.btn-apply
+		b
+			display: block
+			padding-top: 5px
+
+.countdown
+	div
+		border-radius: 9px
+		display: inline-block
+		font-size: 1.1em
+		line-height: 1em
+		font-family: 'UniversLTStd-Bold'
+		padding: 0px 5px
+		margin: 0px 4px
+		span
+			font-weight: normal
+			font-family: 'UniversLTStd'
+			font-size: 0.45em
+			line-height: 1em
+			display: block
+			text-transform: uppercase
+
 .btn
 	&:focus, &:active
 		box-shadow: none
+	&.btn-info
+		&:hover, &:active, &:focus
+			background: white
+			color: $blue
+		&:hover
+			text-decoration: none
+		
+		font-family: 'UniversLTStd-Bold'
+		background: white
+		color: $blue
+		font-size: 1em
+		b
+			font-family: UniversLTStd
+			font-size: 0.8em
+			display: block
 	&.play-vid
 		opacity: 0
 		position: relative
@@ -369,12 +408,12 @@ section#video
 		line-height: 37px
 		margin-bottom: 2px
 		color: white
-		&:nth-child(3)
-			outline: 4px solid white
-			background-color: white
-			color: black
-			text-shadow: none
-			padding-left: 5px
+		// &:nth-child(3)
+		// 	outline: 4px solid white
+		// 	background-color: white
+		// 	color: black
+		// 	text-shadow: none
+		// 	padding-left: 5px
 		&:first-child
 			font-weight: bold
 			&:before
@@ -1235,6 +1274,8 @@ ul.social // social links in the bootom footer
 	&:hover
 		border: none
 	&.btn-apply
+		&:hover
+			background: darken($blue, 9)
 		background: $blue
 		color: white
 		font-family: 'UniversLTStd-Bold'
