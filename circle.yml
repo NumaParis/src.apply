@@ -27,4 +27,4 @@ compile:
 deployment:
   main:
     branch: 'master'
-      - bundle exec middleman deploy >/dev/null 2>&1:
+      - bundle exec middleman deploy
