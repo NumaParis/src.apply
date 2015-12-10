@@ -1,8 +1,19 @@
-This website is awesome!
+This website is awesome! apply.numa.co
+This website is a middleman website, for any technical challanges refer to the documentation https://middlemanapp.com/basics/install/
+I am using [rbenv](https://github.com/rbenv/rbenv) to jugle different ruby verssions, [see why](https://robots.thoughtbot.com/using-rbenv-to-manage-rubies-and-gems) ?
+
+##quick instructions
+- fork the repo
+- go to folder, run `bundle install`
+- then run `bundle exec middleman`
+- you can see the website live at http://localhost:4567/
+- to deploy the website do : `bundle exec middleman deploy --build-before`
+- content edit : all content is on google drive in [this spreadsheet](https://docs.google.com/spreadsheets/d/1YQ8Q-ZeRoYhACAn_AYNhBbSzo6Lx4qjqken_mFHAKH8/edit#gid=1402341569)
+- for better content management, if needed, have a look at prismic.io 
+- Every time you edit the spreadsheet rerun the script and redeploy. `bundle exec middleman deploy --build-before` to automize this get the circle.ci integration to work.
 
 ##Notes & To Do:
 -----
-
 - ✔ install analytics
 - ✔ optimize images
 - ✔ optimize navigation on mobile devices
@@ -17,7 +28,6 @@ This website is awesome!
 	* link to the two other pages of the site
 	* format these two pages
 	* customize the 404 page
-
 
 [mkdrendering]: http://vaidehijoshi.github.io/blog/2015/08/11/rolling-out-the-redcarpet-for-rendering-markdown/
 
@@ -69,4 +79,3 @@ License
 
 Copyright (C) 2015 [Marius Nedelcu][English].
 All rights reserved with all articles and pictures.
-
