@@ -30,9 +30,9 @@ ogp:
 					p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
 					p
 						a href="https://www.f6s.com/numaparis" class='btn btn-lg btn-apply'
-							span class="countdown simple" data-date="December 16, 2015 00:00:25"
+							span class="countdown simple" data-date="May 21, 2016 00:00:25"
 							b Apply Now
-						| <div><a class='btn btn-info' target="_blank" href="https://www.facebook.com/events/990065734385921/">Info Session<b>10/12/15</b></a></div>
+						| <div><a class='btn btn-info' target="_blank" href="https://www.facebook.com/events/990065734385921/">Info Session<b>11/4/16</b></a></div>
 					
 	.content
 		section#accelerator
@@ -43,7 +43,7 @@ ogp:
 			
 			#agenda.col-sm-12.col-md-5.col-lg-4
 				ul.agenda
-					li Agenda
+					li Agenda for Season 9
 					-data.numa['intro'].each do |row|
 						li = row['agenda']
 					li =link_to 'Apply Now', "https://www.f6s.com/numaparis", :class => 'btn btn-lg btn-apply', :target=> '_blank'
@@ -62,7 +62,7 @@ ogp:
 				#videocontainer
 
 		section#wanted
-			.col-sm-12
+			.col-sm-8
 				header
 					h2 =data.numa['wanted'].find{ |p| p.name == 'heading' }.content
 					p =data.numa['wanted'].find{ |p| p.name == 'paragraph' }.content
@@ -81,7 +81,7 @@ ogp:
 					-data.numa['program'].each do |row|
 						- if row['keypoints'] != nil
 							li
-								=row['keypoints']			
+								=row['keypoints']
 			hr
 			.col-sm-12
 				h2 Program Timeline
@@ -102,7 +102,7 @@ ogp:
 							=row['three']
 		
 		section#mentors
-			.col-sm-12
+			.col-sm-8
 				header
 					h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
 					p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
@@ -147,7 +147,7 @@ ogp:
 				-data.numa['quotes'].each do |row|
 					li.col-md-3
 						/ .photo
-							/= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
+						/ 	= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
 						h4.name = row['name']
 						em.quote
 							= row['quote']
@@ -158,8 +158,8 @@ ogp:
 		section#team
 			.col-sm-12
 				header
-					h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
-					p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
+					/ h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
+					/ p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
 			
 			ul.people
 				-data.numa['team'].each do |row|
@@ -171,15 +171,17 @@ ogp:
 							- if row['twitter'] != nil
 								= link_to 'a', "http://twitter.com/#{row['twitter']}", :target=> '_blank', :class=> 'twitter'
 						strong
-							= row['name']
+							- if row['name'] != nil
+								= row['name']
 							em
+							- if row['role'] != nil
 								= row['role']
 		
 		section#global.clearfix
 			.col-sm-12
 				header
-					h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
-					p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
+					/ h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
+					/ p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
 
 			.le-mapcontainer
 				.col-sm-12.col-md-3.col-lg-3

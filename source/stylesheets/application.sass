@@ -214,19 +214,20 @@ ul.nav
 		margin-right: -$grid-gutter-width/2
 		margin-left: -$grid-gutter-width/2
 	
-	+background-image('team_sprint.jpg')
+	+background-image('intro_banner_numa.jpg')
 	padding-top: 85%
 	@media screen and (min-width: $screen-xs)
 		padding-top: 66%
 	@media screen and (min-width: $screen-sm)
 		padding-top: 58%
-		background-color: fade-out($orange, 0.66)
-	background-color: fade-out($orange, 0.6)
-	background-blend-mode: multiply
+	
+	background-color: fade-out($c02, 0.4)
+	background-blend-mode: lighten
 	background-size: cover
 	position: relative
 	.wrap
 		text-align: center
+		background-color: fade-out($c15, 0.7)
 		+stretch
 		> div
 			display: table
@@ -246,15 +247,15 @@ ul.nav
 		+center-block
 	h1, p
 		font-family: 'UniversLTStd-Bold'
+		text-shadow: 1px 1px 0px fade-out(#000, .4)
 	h1
 		padding-top: $grid-gutter-width
 		@media screen and (min-width: 330px)
 			padding-left: 0
 			padding-right: 0
 		margin-bottom: 10px
-		font-size: 1.7em
+		font-size: 2em
 		line-height: 1em
-		text-shadow: 1px 1px 14px fade-out(#000, .2)
 		margin-bottom: 0
 	p
 		font-size: 1.1em
@@ -492,6 +493,8 @@ ul.metrics
 
 //Wanted ----------------------------------
 ul.wanted
+	clear: both
+	display: block
 	li
 		text-align: center
 		@media screen and (max-width: 330px)
@@ -759,6 +762,8 @@ ul.step
 //Team & Mentors ----------------------------------
 
 ul.people
+	clear: both
+	display: block
 	li
 		min-height: 270px
 		text-align: center
