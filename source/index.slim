@@ -29,7 +29,7 @@ ogp:
 					h1 =data.numa['intro'].find{ |p| p.name == 'heading' }.content
 					p =data.numa['intro'].find{ |p| p.name == 'subheading' }.content
 					p
-						a href="https://www.f6s.com/numaparis" class='btn btn-lg btn-apply'
+						a href="https://www.f6s.com/numaparis-season9" class='btn btn-lg btn-apply'
 							span class="countdown simple" data-date="May 21, 2016 00:00:25"
 							b Apply Now
 						| <div><a class='btn btn-info' target="_blank" href="https://www.facebook.com/events/990065734385921/">Info Session<b>11/4/16</b></a></div>
@@ -46,7 +46,7 @@ ogp:
 					li Agenda for Season 9
 					-data.numa['intro'].each do |row|
 						li = row['agenda']
-					li =link_to 'Apply Now', "https://www.f6s.com/numaparis", :class => 'btn btn-lg btn-apply', :target=> '_blank'
+					li =link_to 'Apply Now', "https://www.f6s.com/numaparis-season9", :class => 'btn btn-lg btn-apply', :target=> '_blank'
 			
 			ul.metrics.clearfix
 				-data.numa['accelerator'].each do |row|
