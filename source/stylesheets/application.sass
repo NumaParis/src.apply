@@ -765,7 +765,9 @@ ul.people
 	clear: both
 	display: block
 	li
-		min-height: 270px
+		@media screen and (min-width: $screen-lg)
+			min-height: 290px
+		min-height: 330px
 		text-align: center
 		strong, em, span
 			display: block
