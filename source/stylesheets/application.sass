@@ -1087,7 +1087,7 @@ blockquote
 			position: absolute
 			top: -20px
 			left: -20px
-			z-index: 1
+			z-index: 0
 			opacity: 0
 
 div.le-mapcontainer
@@ -1259,8 +1259,29 @@ div.le-mapcontainer
 			+box-shadow(0px 0px 7px $blue)
 			&:after
 				border: 10px solid blue
+	// &.numa.PARIS
+	// 	.inc li.Chicago
+	// 		color: $blue
+	// 	.point.numaPARIS
+	// 		background-color: red
+	// 		+box-shadow(0px 0px 7px red)
+	// 		&:after
+	// 			border: 10px solid blue
 
 .point
+	&.numa
+		+square(20px)
+		+background-image('numa.svg')
+		background-position: center
+		background-size: 21px
+		background-repeat: no-repeat
+		z-index: 10000
+		+transition(100ms)
+		&:hover
+			transform: scale(2)
+			background-color: black
+		// background-color: black
+		// +box-shadow(none)
 	position: relative
 	background-color: $orange
 	+box-shadow(0px 0px 7px $orange)
@@ -1311,6 +1332,19 @@ div.le-mapcontainer
 		+position(42.3,25.6)
 	&.Chicago
 		+position(36.2,13.6)
+	&.numa.PARIS
+		+position(34.5,46.4)
+	&.numa.MOSCOW
+		+position(31.3,52.8)
+	&.numa.BENGALURU
+		+position(53,67.7)
+	&.numa.CASABLANCA
+		+position(48.3, 43.8)
+	&.numa.MEXIC
+		+position(50,18)
+	&.numa.BARCELONA
+		+position(41.9,44.4)
+		// outline: 2px solid red
 
 // Site Parts -----------------------------------
 
