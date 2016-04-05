@@ -253,9 +253,5 @@ ogp:
 		section#partners
 			h3 =data.numa['partners'].find { |p| p.title == 'heading'}.content
 			ul.partners
-				li=image_tag 'logo_orange.png', :alt=> 'orange'
-				li=image_tag 'logo_atelier.png', :alt=> 'atelier'
-				li=image_tag 'logo_google.png', :alt=> 'google'
-				li=image_tag 'logo_cisco.png', :alt=> 'cisco'
-				li=image_tag 'logo_sncf.png', :alt=> 'sncf'
-				li=image_tag 'logo_bnp.png', :alt=> 'bnp'
+				-data.numa['partners'].each do |row|
+					li = image_tag "#{row['logo']}", :alt=> "#{row['name']}"
