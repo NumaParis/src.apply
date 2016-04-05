@@ -32,8 +32,8 @@ ogp:
 						a href="https://www.f6s.com/numaparis-season9" class='btn btn-lg btn-apply'
 							span class="countdown simple" data-date="April 24, 2016 00:00:25"
 							b Apply Now
-						| <div><a class='btn btn-info' target="_blank" href="https://www.facebook.com/events/990065734385921/">Info Session<b>11/4/16</b></a></div>
-					
+						| <div><a class='btn btn-info' target="_blank" href="https://www.facebook.com/events/990065734385921/">Info Session at NUMA<b>11/4/16</b></a></div>
+
 	.content
 		section#accelerator
 			.col-sm-12.col-md-7.col-lg-8
@@ -53,6 +53,10 @@ ogp:
 					li.col-xs-6.col-sm-3 = row['trackrecord']
 
 		section
+			.col-sm-12.text-center
+				header
+					h3 Discover what is it about with Season 7 Demo Day
+			
 			javascript:
 				var embedCode = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/O6qXMYQb1_I?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'
 			.vidholder
@@ -116,7 +120,7 @@ ogp:
 								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
 							- if row['twitter'] != nil
 								= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
-						strong.name
+						strong
 							= row['name']
 							em
 								= row['role']
@@ -125,7 +129,7 @@ ogp:
 			.col-sm-12
 				header
 					h2 =data.numa['stories'].find{ |p| p.title == 'heading' }.content
-					/p =data.numa['stories'].find{ |p| p.name == 'paragraph' }.content
+					p =data.numa['stories'].find{ |p| p.title == 'paragraph' }.content
 			ul.stories.clearfix
 				-data.numa['stories'].each do |row|
 					li.col-md-4
@@ -142,7 +146,9 @@ ogp:
 		section#quotes
 			.col-sm-12
 				header
-					h2 =data.numa['quotes'].find{ |p| p.title == 'heading' }.content
+					/h2 =data.numa['quotes'].find{ |p| p.title == 'heading' }.content
+
+					/p =data.numa['quotes'].find{ |p| p.title == 'paragraph' }.content
 			ul.quotes.clearfix
 				-data.numa['quotes'].each do |row|
 					li.col-md-3
@@ -158,8 +164,8 @@ ogp:
 		section#team
 			.col-sm-12
 				header
-					/ h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
-					/ p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
+					h2 =data.numa['team'].find{ |p| p.title == 'heading' }.content
+					p =data.numa['team'].find{ |p| p.title == 'paragraph' }.content
 			
 			ul.people
 				-data.numa['team'].each do |row|
@@ -174,14 +180,21 @@ ogp:
 							- if row['name'] != nil
 								= row['name']
 							em
-							- if row['role'] != nil
-								= row['role']
-		
+								- if row['role'] != nil
+									= row['role']
+
+		.perks.clearfix 
+			h2.text-center Perks that rock !
+			ul
+
+				-data.numa['perks'].each do |row|
+					li = image_tag "#{row['logo']}", :alt=> "#{row['name']}"
+
 		section#global.clearfix
 			.col-sm-12
 				header
-					/ h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
-					/ p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
+					h2 =data.numa['global'].find{ |p| p.name == 'heading' }.content
+					p =data.numa['global'].find{ |p| p.name == 'paragraph' }.content
 
 			.le-mapcontainer
 				.col-sm-12.col-md-3.col-lg-3
@@ -230,26 +243,6 @@ ogp:
 						.point.Palo_Alto
 						.point.Durham
 						.point.Chicago
-
-		.perks.clearfix 
-			h2.text-center Perks that rock !
-			ul
-				li =image_tag 'images/Google_Startup_Pack.png', :alt=> 'Google_Startup_Pack'
-				li =image_tag 'images/Mailjet.png', :alt=> 'Mailjet'
-				li =image_tag 'images/Zendesk.png', :alt=> 'Zendesk'
-				li =image_tag 'images/aircall.png', :alt=> 'aircall'
-				li =image_tag 'images/algolia.png', :alt=> 'algolia'
-				li =image_tag 'images/amazon-web-services.png', :alt=> 'amazon-web-services'
-				li =image_tag 'images/evernote.jpg', :alt=> 'evernote'
-				li =image_tag 'images/mixpanel.png', :alt=> 'mixpanel'
-				li =image_tag 'images/invision.png', :alt=> 'invision'
-				li =image_tag 'images/bizpack.png', :alt=> 'bizpack'
-				li =image_tag 'images/twitter.png', :alt=> 'twitter'
-				li =image_tag 'images/intercom.png', :alt=> 'intercom'
-				li =image_tag 'images/dashlane.png', :alt=> 'dashlane'
-				li =image_tag 'images/azendo.png', :alt=> 'azendo'
-				li =image_tag 'images/paypal-startup-blueprint.png', :alt=> 'paypal-startup-blueprint'
-				li =image_tag 'images/Stripe.jpeg', :alt=> 'Stripe'
 
 		section#partners
 			h3 =data.numa['partners'].find { |p| p.title == 'heading'}.content
