@@ -1081,12 +1081,12 @@ blockquote
 			border: 10px solid $orange
 			background: transparent
 			border-radius: 60px
-			+square(50px)
+			+square(30px)
 			+animation(pulse, 2s, ease-out)
 			+animation-iteration-count()
 			position: absolute
-			top: -20px
-			left: -20px
+			top: -10px
+			left: -10px
 			z-index: 0
 			opacity: 0
 
@@ -1270,12 +1270,17 @@ div.le-mapcontainer
 
 .point
 	&.numa
+		&:after,
+		&:before
+			visibility: hidden
+		
+		outline: none
 		+square(20px)
 		+background-image('numa.svg')
 		background-position: center
 		background-size: 21px
 		background-repeat: no-repeat
-		z-index: 10000
+		// z-index: 10000
 		+transition(100ms)
 		&:hover
 			transform: scale(2)
