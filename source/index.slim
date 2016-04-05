@@ -89,17 +89,23 @@ ogp:
 			hr
 			.col-sm-12
 				h2 Program Timeline
+			
 			ul.step.one.col-sm-4
+				li.showmore
 				- data.numa['program'].each do |row|
 					- if row['one'] != nil
 						li
 							= row['one']
+			
 			ul.step.two.col-sm-4
+				li.showmore
 				-data.numa['program'].each do |row|
 					- if row['two'] != nil
 						li
 							=row['two']
+			
 			ul.step.three.col-sm-4
+				li.showmore
 				-data.numa['program'].each do |row|
 					- if row['three'] != nil
 						li
@@ -186,7 +192,7 @@ ogp:
 		.perks.clearfix 
 			h2.text-center Perks that rock !
 			ul
-
+				li.showmore 
 				-data.numa['perks'].each do |row|
 					li = image_tag "#{row['logo']}", :alt=> "#{row['name']}"
 

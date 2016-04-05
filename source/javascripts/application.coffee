@@ -43,8 +43,9 @@ $ ->
     $('.navbar-toggle:visible').click()
     return
 
-  $('.step li:last-child').click ->
-    $(this).toggleClass('more-info')
+  $('.showmore').click ->
+    # $(this).toggleClass('extend')
+    $(this).parent().toggleClass('extend')
   return
   
 return
