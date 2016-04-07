@@ -32,9 +32,9 @@ en:
     url: http://apply.numa.co
     title: Apply for startup acceleration at NUMA
     cname: apply.numa.co
-    description: The New Season for startup acceleration is now open
+    description: Growth and human capital for startups
   author:
-    name: 'The communication team at NUMA Paris'
+    name: 'numaParis'
   tag_title:
     text: "#%{tag}"
     html: "#%{tag}"
