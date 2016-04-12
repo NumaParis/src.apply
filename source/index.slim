@@ -3,8 +3,8 @@ ogp:
   og:
     description: 'The applications season for startup acceleration is open. Feel free to Apply'
     image:
-      '': http://apply.numa.co/images/cover.jpg
-      secure_url: http://apply.numa.co/images/cover.jpg
+      '': http://apply.numa.co/images/fbcvr.jpg
+      secure_url: http://apply.numa.co/images/fbcvr.jpg
       type: image/png
       width: 400
       height: 300
@@ -55,7 +55,7 @@ ogp:
 		section
 			.col-sm-12.text-center
 				header
-					h3 Discover what is it about with Season 7 Demo Day
+					h3 Check out the trailer from the last Demo Day
 			
 			javascript:
 				var embedCode = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/O6qXMYQb1_I?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'
@@ -86,50 +86,7 @@ ogp:
 						- if row['keypoints'] != nil
 							li
 								=row['keypoints']
-			hr
-			.col-sm-12
-				h2 Program Timeline
-			
-			ul.step.one.col-sm-4
-				li.showmore
-				- data.numa['program'].each do |row|
-					- if row['one'] != nil
-						li
-							= row['one']
-			
-			ul.step.two.col-sm-4
-				li.showmore
-				-data.numa['program'].each do |row|
-					- if row['two'] != nil
-						li
-							=row['two']
-			
-			ul.step.three.col-sm-4
-				li.showmore
-				-data.numa['program'].each do |row|
-					- if row['three'] != nil
-						li
-							=row['three']
 		
-		section#mentors
-			.col-sm-8
-				header
-					h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
-					p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
-			
-			ul.people
-				-data.numa['mentors'].each do |row|
-					li.col-xs-6.col-sm-4.col-md-3.col-lg-2
-						.avatar
-							= image_tag "#{row['photo']}", :alt=> "#{row['name']}"
-							- if row['linkedin'] != nil
-								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
-							- if row['twitter'] != nil
-								= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
-						strong
-							= row['name']
-							em
-								= row['role']
 
 		section#success
 			.col-sm-12
@@ -149,23 +106,44 @@ ogp:
 							p
 								= row['story']
 		
-		section#quotes
-			.col-sm-12
-				header
-					/h2 =data.numa['quotes'].find{ |p| p.title == 'heading' }.content
 
-					/p =data.numa['quotes'].find{ |p| p.title == 'paragraph' }.content
-			ul.quotes.clearfix
-				-data.numa['quotes'].each do |row|
-					li.col-md-3
-						/ .photo
-						/ 	= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
-						h4.name = row['name']
-						em.quote
-							= row['quote']
-						div.where
-							- if row['where'] != nil
-								= link_to "#{row['where']}", "#{row['link']}", :class=> "#{row['where']}", :target=> "_blank"
+		section#mentors
+			.col-sm-8
+				header
+					h2 =data.numa['mentors'].find{ |p| p.title == 'heading' }.content
+					p =data.numa['mentors'].find{ |p| p.title == 'paragraph' }.content
+			
+			ul.people
+				-data.numa['mentors'].each do |row|
+					li.col-xs-6.col-sm-4.col-md-3.col-lg-2
+						.avatar
+							= image_tag "#{row['photo']}", :alt=> "#{row['name']}"
+							- if row['linkedin'] != nil
+								= link_to 'a', "#{row['linkedin']}", :target=> '_blank', :class=> 'linkedin'
+							- if row['twitter'] != nil
+								= link_to 'a', "http://twitter.com/#{row['twitter']}", :class=> 'twitter'
+						strong
+							= row['name']
+							em
+								= row['role']
+		
+		/ section#quotes
+		/ 	.col-sm-12
+		/ 		header
+		/ 			/h2 =data.numa['quotes'].find{ |p| p.title == 'heading' }.content
+
+		/ 			/p =data.numa['quotes'].find{ |p| p.title == 'paragraph' }.content
+		/ 	ul.quotes.clearfix
+		/ 		-data.numa['quotes'].each do |row|
+		/ 			li.col-md-3
+		/ 				/ .photo
+		/ 				/ 	= image_tag "#{row['name']}.png", :alt=>"#{row['name']}"
+		/ 				h4.name = row['name']
+		/ 				em.quote
+		/ 					= row['quote']
+		/ 				div.where
+		/ 					- if row['where'] != nil
+		/ 						= link_to "#{row['where']}", "#{row['link']}", :class=> "#{row['where']}", :target=> "_blank"
 
 		section#team
 			.col-sm-12
@@ -196,6 +174,30 @@ ogp:
 				-data.numa['perks'].each do |row|
 					li = image_tag "#{row['logo']}", :alt=> "#{row['name']}"
 
+		section#timeline
+			.col-sm-12
+				h2 Program Timeline
+			
+			ul.step.one.col-sm-4
+				li.showmore
+				- data.numa['program'].each do |row|
+					- if row['one'] != nil
+						li
+							= row['one']
+			
+			ul.step.two.col-sm-4
+				li.showmore
+				-data.numa['program'].each do |row|
+					- if row['two'] != nil
+						li
+							=row['two']
+			
+			ul.step.three.col-sm-4
+				li.showmore
+				-data.numa['program'].each do |row|
+					- if row['three'] != nil
+						li
+							=row['three']
 		section#global.clearfix
 			.col-sm-8
 				header
